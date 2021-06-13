@@ -1,0 +1,108 @@
+let images = document.querySelectorAll(".image");
+const root = document.documentElement;
+const elements = [".image-1", ".image-2", ".image-3"];
+const elements1 = [".f-1", ".f-2", ".f-3"];
+
+const totalImages = images.length;
+
+let currentImage = 1;
+let nextImage = currentImage + 1;
+let upcomingImage = nextImage + 1;
+
+let textSlider = document.querySelectorAll(".textSlider");
+
+const totalText = textSlider.length;
+let fcurrentText = 1;
+let fnextText = fcurrentText + 1;
+let fupcomingText = fnextText + 1;
+
+function filterActiveImages(image1, image2) {
+  const filteredResult = elements.filter(
+    (element) => element !== image1 && element !== image2
+  );
+
+  return filteredResult;
+}
+
+function filterActiveText(text1, text2) {
+  const filteredResult = elements1.filter(
+    (element) => element !== text1 && element !== text2
+  );
+
+  return filteredResult;
+}
+
+function slideImage(currentImage, nextImage, upcomingImage) {
+
+  let tl = gsap.timeline({
+    defaults: { duration: 0.8, ease: Power1.easeInOut },
+  });
+  tl.to(`.image-${currentImage}`, { rotation: -10, xPercent: -100 })
+    .to(`.image-${currentImage}`, { rotation: 0, xPercent: 0 })
+    .to(`.image-${nextImage}`, { zIndex: 2 }, "-=1.6")
+    .to(`.image-${currentImage}`, { zIndex: -1 }, "-=1.6")
+    .to(`.image-${upcomingImage}`, { zIndex: 1 }, "-=1.6")
+    .to(
+      filterActiveImages(`.image-${nextImage}`, `.image-${currentImage}`),
+      { zIndex: 0 },
+      "-=2.4"
+    );
+  tl.timeScale(2);
+  return tl;
+}
+
+function fslideText(fcurrentText, fnextText, fupcomingText) {
+  const d = filterActiveText(`.f-${fnextText}`, `.f-${fcurrentText}`);
+
+  const elms = document.getElementsByClassName("textSlider");
+
+  for (let i = 0; i < elms.length; i++) {
+    elms[i].style.display = "none";
+  }
+
+  document.getElementsByClassName(d[0].split(".")[1])[0].style.display =
+    "block";
+
+  let tl = gsap.timeline({
+    defaults: { duration: 0.8, ease: Power1.easeInOut },
+  });
+  tl.to(`.f-${fcurrentText}`, { rotation: -10, xPercent: -100 })
+    .to(`.f-${fcurrentText}`, { rotation: 0, xPercent: 0 })
+    .to(`.f-${fnextText}`, { zIndex: 2 }, "-=1.6")
+    .to(`.f-${fcurrentText}`, { zIndex: -1 }, "-=1.6")
+    .to(`.f-${fupcomingText}`, { zIndex: 1 }, "-=1.6")
+    .to(d, { zIndex: 0 }, "-=2.4");
+  tl.timeScale(2);
+
+  return tl;
+}
+
+function slideText(currentImage, nextImage, upcomingImage) {
+  // fslideText(currentImage, nextImage, upcomingImage);
+
+  const elms = document.getElementsByClassName("textSlider");
+
+  for (let i = 0; i < elms.length; i++) {
+    elms[i].style.display = "none";
+  }
+  const _id = "t-" + nextImage.toString();
+  document.getElementById(_id).style.display = "block";
+}
+
+function nextAnimation() {
+  slideImage(currentImage, nextImage, upcomingImage);
+  slideText(currentImage, nextImage, upcomingImage);
+
+  currentImage = nextImage;
+  nextImage = currentImage - 1;
+
+  if (currentImage === 1) {
+    nextImage = totalImages;
+  }
+
+  if (nextImage === 1) {
+    upcomingImage = totalImages;
+  } else {
+    upcomingImage = nextImage - 1;
+  }
+}

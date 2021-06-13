@@ -1,0 +1,32 @@
+.container {
+  max-width: 126rem !important;
+  margin: 0 auto;
+}
+.container_m {
+  max-width: 115rem !important;
+  margin: 0 auto;
+}
+
+.container_s {
+  max-width: 110rem !important;
+  margin: 0 auto;
+}
+
+.container_xs {
+  max-width: 105rem !important;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 780px) {
+  .container_s {
+    max-width: 80% !important;
+  }
+
+  .container_xs {
+    max-width: 90% !important;
+  }
+
+  .container_m {
+    max-width: 90% !important;
+  }
+}

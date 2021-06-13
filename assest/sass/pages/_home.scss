@@ -1,0 +1,399 @@
+// // Sections
+// .section_header {
+//   background-color: $primary_clr;
+// }
+
+// .section_handsontech {
+//   background-color: $bg_clr;
+// }
+
+// // Technos
+// .technos {
+//   background-color: $font_clr;
+//   &_icon {
+//     width: 5.8rem;
+//     margin: 0 1rem;
+//     color: #fff;
+//   }
+// }
+
+// // Technos Section Icons
+// .tech_icon {
+//   width: 6.7rem;
+//   padding: 1rem;
+//   transition: all 0.2s ease;
+// }
+// .tech_icon path {
+//   fill: rgb(114, 114, 114);
+// }
+
+// .tech_icon:hover path {
+//   transition: all 0.2s ease;
+//   fill: $secondary_clr;
+// }
+
+// // Cleancode
+// .cleancode {
+//   background-color: $secondary_clr;
+
+//   &_blob {
+//     background-image: url("../../images/bg_blob2.svg");
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//   }
+// }
+
+// // Frameworks
+// .framworks_heading {
+//   color: $secondary_clr;
+// }
+
+// // plans
+// .plans {
+//   &_title {
+//     font-weight: 600;
+//     color: $cta_clr;
+//   }
+
+//   &_price {
+//     font-size: 3rem;
+//     font-weight: 600;
+//   }
+//   &_items {
+//     padding: 0.5rem 0 !important;
+//   }
+// }
+
+// // wordpress
+// .wordpress {
+//   background-image: url("../../images/blob_3.svg");
+//   background-repeat: no-repeat;
+//   background-size: 60%rem;
+// }
+
+// // process
+// .process {
+//   background-color: $font_clr;
+//   color: #fff !important;
+// }
+
+// // GetStart
+// .getstart {
+//   // background-color: rgb(248, 248, 248);
+//   // background-image: url("../images/bg_ill2.svg");
+//   // background-repeat: no-repeat;
+//   // background-size: 20rem;
+//   // background-position: 20rem;
+// }
+
+// .GetStart_inp {
+//   width: 35%;
+// }
+
+// // letsconnect
+// .letsconnect {
+//   background-color: rgb(248, 248, 248);
+// }
+
+// // frameworks
+// .framworks {
+//   background-color: $font_clr;
+//   color: #fff !important;
+// }
+
+// Hero Section
+
+.hero_withbg {
+  background-image: linear-gradient(
+      to right,
+      rgba(37, 37, 37, 0.795),
+      rgba(24, 24, 24, 0.103)
+    ),
+    url("../images/testimg.jpg");
+  background-position: center;
+  padding: 16rem;
+
+  &--title {
+    color: #00afff;
+    font-size: 8rem;
+  }
+
+  &--para {
+    font-size: 3rem !important;
+    font-weight: 700;
+    color: #eee;
+  }
+
+  &--btn {
+    font-size: 1.7rem;
+    min-width: 20rem;
+    font-weight: 600;
+    background-color: #00afff;
+    color: #f8f8f8;
+    border: none;
+    padding: 1rem;
+    margin-left: 1rem;
+  }
+
+  &--btn:hover {
+    background-color: #015d88;
+  }
+
+  &--btn2 {
+    font-size: 1.7rem;
+    min-width: 20rem;
+    font-weight: 600;
+    background-color: #fff;
+    color: #00afff;
+    padding: 1rem;
+    margin-left: 1rem;
+  }
+
+  &--btn2:hover {
+    background-color: #015d88;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .hero_withbg {
+    background-position: center;
+    padding: 3rem;
+
+    &--title {
+      font-size: 5rem;
+    }
+
+    &--para {
+      font-size: 2rem !important;
+    }
+
+    &--btn {
+      font-size: 1.8rem;
+      padding: 1rem;
+    }
+
+    &--btn2 {
+      font-size: 1.8rem;
+      min-width: 20rem;
+      font-weight: 600;
+      background-color: #fff;
+      color: #00afff;
+      padding: 1rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+// End Hero Section
+
+.wyu_img {
+  width: 95% !important;
+}
+
+// Brand Section
+.tellus_card {
+  border-radius: 0.5rem;
+  height: 80%;
+  overflow: hidden;
+  position: relative;
+}
+
+.tellus_card--effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.336);
+  top: 0;
+  left: 0;
+}
+
+// .tellus_card--effect_word{
+
+// }
+
+.tellus_card--btn {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+// Form borderbottom
+.form_bb {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgb(156, 156, 156) !important;
+
+  &:focus {
+    border: 1px solid #337ab7 !important;
+  }
+
+  &--btn {
+    background-color: #29b4e1;
+    color: #fff;
+    padding: 0.6rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $font_clr;
+      color: #fff;
+    }
+  }
+  &--btn2 {
+    background-color: #29b4e1;
+    color: #fff;
+    border-radius: 3rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $font_clr;
+      color: #fff;
+    }
+  }
+}
+
+// Influncerform
+.influencer_form {
+  border-radius: 2rem;
+}
+
+.inf_form {
+  padding: 1.3rem;
+  border: 1px solid rgb(241, 241, 241);
+}
+.topbrand_img {
+  width: 80% !important;
+}
+
+//
+.network_people--img {
+  width: 15rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+// Carrer
+.carrer_link {
+  background-color: #fff;
+  padding: 1.4rem !important;
+  color: rgb(70, 70, 70);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.6rem !important;
+}
+
+.carrer_link--active {
+  background-color: #003c6e;
+  padding: 1.4rem !important;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.6rem !important;
+}
+
+.carrer_desc--content {
+  padding: 1.4rem !important;
+  margin: 0.6rem !important;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.carrer_table-head {
+  width: 30%;
+  padding: 1.5rem !important;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.carrer_table-content {
+  padding: 1.5rem !important;
+}
+
+.carrer_btn {
+  text-align: right;
+}
+
+//  Why us
+
+.whyus_card--img {
+  width: 7rem;
+}
+
+// Case Studies
+.cs_logo {
+  width: 18rem !important;
+}
+
+.cs_hl {
+  color: #337ab7;
+}
+
+.cs_img {
+  height: 40rem;
+}
+
+.cs_btn {
+  font-size: 2rem;
+  border: 2px solid #003c6e;
+  border-radius: 5rem;
+  padding: 0.8rem;
+}
+
+
+
+
+// Contact Right
+
+.contact_right{
+  background-color: #003c6e;
+  position: relative;
+}
+
+.contact_right--img1{
+  width: 60% !important;
+  position: absolute;
+  top: 10rem;
+  left: 8rem;
+}
+.contact_right--img2{
+  width: 60% !important;
+  position: absolute;
+  top: 23rem;
+  left: 16rem;
+}
+
+@media screen and (max-width: 780px) {
+  .cs_img {
+    height: 27rem;
+  }
+
+  .contact_right{
+    height: 35rem;
+  }
+
+
+  .contact_right--img1{
+    width: 60% !important;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+  }
+  .contact_right--img2{
+    width: 60% !important;
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+  }
+}
+
+// Form borderbottom
+
+// Rest Code
+// Service
+// .svc_card--2 {
+//   background-color: $;
+// }
+
+// Service
+// .service_cards {
+//   padding: 6rem 0 !important;
+// }

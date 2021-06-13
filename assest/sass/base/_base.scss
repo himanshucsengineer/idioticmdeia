@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-size: 1.5rem !important;
+  font-family: "Poppins", sans-serif;
+  color: $font_clr;
+  background-color: #fff;
+}
+
+.main {
+  min-height: 85vh;
+}
+
+// .container {
+//   max-width: 105rem !important;
+//   margin: 0 auto;
+// }

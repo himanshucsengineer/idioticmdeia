@@ -1,0 +1,75 @@
+.wordblock {
+  // head Hero
+  // &_tag {
+  // }
+
+  &__heading {
+    font-weight: 800 !important;
+    line-height: 5.5rem;
+    font-size: 5rem;
+
+    &--subhead {
+      font-size: 4.5rem;
+      font-weight: 700 !important;
+      line-height: 5.5rem;
+    }
+  }
+
+  &__para {
+    line-height: 2.5rem;
+  }
+}
+
+// hero wordblock
+.hero_wordblock {
+  background-image: url("../../images/header_bgsvg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &-title {
+    font-size: 6rem;
+    line-height: 7rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &-para {
+    font-size: 1.9rem !important;
+    line-height: 3.2rem;
+    color: #fff;
+  }
+
+  &-btn {
+    background-color: $secondary_clr;
+    font-family: $head_font;
+    color: $font_clr;
+    font-weight: 800;
+    font-size: 2.5rem;
+    border-radius: 2px;
+    min-width: 20rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .hero_wordblock {
+    &-title {
+      font-size: 5rem;
+      line-height: 6rem;
+    }
+
+    &-para {
+      font-size: 1.6rem !important;
+      line-height: 2.5rem;
+    }
+
+    &-btn {
+      font-size: 2.3rem;
+      border-radius: 2px;
+      min-width: 18rem;
+    }
+  }
+
+  .hero_img {
+    width: 80%;
+  }
+}
