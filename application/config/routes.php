@@ -58,6 +58,8 @@ $route['influancer'] = 'frontend/influancer';
 $route['career'] = 'frontend/career';
 $route['about-us'] = 'frontend/about';
 $route['contact-us'] = 'frontend/contact';
+$route['brand/query/(:any)'] = 'frontend/brandquery/index/$1';
+$route['casestudy/(:any)'] = 'frontend/casestudy/index/$1';
 
 $route['default_controller/login'] = 'login';
 // $route['car-insurance'] = 'frontend/carinsurance';

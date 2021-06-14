@@ -36,7 +36,7 @@ class Career extends CI_controller
                 $config['file_name'] = $File_name;
                 $config['overwrite'] = TRUE;
                 $config["allowed_types"] = 'pdf|doc|docx';
-                $config["max_size"] = '2048';
+                $config["max_size"] = '';
 
                 $this->load->library('upload', $config);
 
@@ -100,7 +100,7 @@ class Career extends CI_controller
                 $config['file_name'] = $File_name;
                 $config['overwrite'] = TRUE;
                 $config["allowed_types"] = 'pdf|doc|docx';
-                $config["max_size"] = '2048';
+                $config["max_size"] = '';
 
                 $this->load->library('upload', $config);
 

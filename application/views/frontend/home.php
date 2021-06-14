@@ -8,9 +8,33 @@
     .wordblock__heading{
         font-weight: 400 !important;
     }
+    .slider_flex{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+    .slider_flex .slider_flex_card{
+        width: 25%;
+        height: auto;
+        padding: .5rem;
+    }
+    .slider_flex .slider_flex_card .inner_card{
+        width: 100%;
+        height: auto;
+
+    }
+    .slider_flex .slider_flex_card .inner_card img{
+        width: 100%;
+        height: 350px;
+    }
     @media only screen and (max-width: 600px) {
         .hero_withbg--title{
         font-size: 4rem !important;
+    }
+    .slider_flex .slider_flex_card{
+        width: 100%;
+        height: auto;
+        padding: .5rem;
     }
 }
 </style>
@@ -158,8 +182,8 @@
             <!-- h1 Wordblock heading  -->
             <div class="wordblock bod">
                 <div class="wordblock__hero text-center">
-                    <div class="p1"><span class="wordblock__tag mtag">About Us</span>
-                    </div>
+
+               
                     <div class="p1 ">
 
                         <h1 class="">CASE STUDIES
@@ -176,19 +200,14 @@
             <!-- Wordblock end -->
             <div class="row jcc">
                 <div class="col-md-10 bod">
-                    <div class="logo_slider flex">
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/2.jpg" alt="" class="img100 cs_img"></a>
+                    <div class="logo_slider slider_flex">
+                    <?php foreach($casestudy as $value){?>
+                        <div class="slider_flex_card">
+                            <a href="<?php echo base_url()?>casestudy/<?php echo $value['link']?>"><div class="inner_card">
+                                <img src="<?php echo base_url() ?>upload/casestudy/<?php echo $value['fetured']?>" alt="">
+                            </div></a>
                         </div>
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/3img.jpg" alt="" class="img100 cs_img"></a>
-                        </div>
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/4img.jpg" alt="" class="img100 cs_img"></a>
-                        </div>
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/5img.jpg" alt="" class="img100 cs_img"></a>
-                        </div>
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/5img.jpg" alt="" class="img100 cs_img"></a>
-                        </div>
-                        <div class="item"><a href=""> <img src="<?php echo base_url() ?>assest/images/5img.jpg" alt="" class="img100 cs_img"></a>
-                        </div>
+                        <?php }?>
                     </div>
 
                 </div>
@@ -196,7 +215,7 @@
             <div class="spacer"></div>
             <div class="row jcc">
                 <div class="col-md-10 bod text-center">
-                    <button class="btn cs_btn">See All Case Studies </button>
+                    <a href="<?php echo base_url()?>brands"><button class="btn cs_btn">See All Case Studies </button></a>
                 </div>
             </div>
         </div>

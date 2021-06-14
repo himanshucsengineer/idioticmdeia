@@ -3,16 +3,16 @@
         public function __construct()
     {
         parent::__construct();
-        
+        $this->load->model('frontend/Homemodel');
     }
 
         public function index(){
             
-           
+            $data['casestudy']= $this->Homemodel->fetch_casestudy();
             $this->load->view('frontend/template/header');
             $this->load->view('frontend/template/navbar');
             
-            $this->load->view('frontend/home');
+            $this->load->view('frontend/home',$data);
             $this->load->view('frontend/template/footer');
 
         }
@@ -79,7 +79,7 @@
                 $config['file_name'] = $File_name;
                 $config['overwrite'] = TRUE;
                 $config["allowed_types"] = 'jpg|jpeg|png';
-                $config["max_size"] = '2048';
+                $config["max_size"] = '';
 
                 $this->load->library('upload', $config);
 

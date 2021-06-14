@@ -78,7 +78,7 @@ if (!empty($_FILES['images']['name'])){
         $config['file_name'] = $File_name;
         $config['overwrite'] = TRUE;
         $config["allowed_types"] = 'jpg|jpeg|png';
-        $config["max_size"] = 1024;
+        $config["max_size"] = '';
 
         $this->load->library('upload', $config);
 

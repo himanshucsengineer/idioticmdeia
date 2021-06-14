@@ -104,6 +104,8 @@
     <li class="nav-item <?php echo ($parts == 'sociallinks')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/sociallinks"><i class="fas fa-fw fa-table" ></i><span >Social Links</span></a>
     </li>
+
+    
     <li class="nav-item <?php echo ($parts == 'whyus')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/whyus"><i class="fas fa-fw fa-table" ></i><span >Why Us Page</span></a>
     </li>
@@ -117,6 +119,22 @@
           <a class="collapse-item " href="<?php echo base_url(); ?>admin/career" style="font-size:1.3rem; ">Create Job</a>
           <a class="collapse-item " href="<?php echo base_url(); ?>admin/interndata" style="font-size:1.3rem; ">Internship Request</a>
           <a class="collapse-item " href="<?php echo base_url(); ?>admin/jobdata" style="font-size:1.3rem; ">Job Request</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+
+    <li class="nav-item ">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#case" aria-expanded="true" aria-controls="collapsePages">
+        <i class="fas fa-fw fa-folder" ></i>
+        <span >Case study</span>
+      </a>
+      <div id="case" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="py-2 collapse-inner rounded">
+          <a class="collapse-item " href="<?php echo base_url(); ?>admin/casecate" style="font-size:1.3rem; ">Create Category</a>
+          <a class="collapse-item " href="<?php echo base_url(); ?>admin/newcase" style="font-size:1.3rem; ">Create New Case study</a>
+          <a class="collapse-item " href="<?php echo base_url(); ?>admin/casedata" style="font-size:1.3rem; ">All Case studies</a>
           <div class="collapse-divider"></div>
         </div>
       </div>

@@ -1,4 +1,16 @@
 <!-- Footer Section -->
+
+<?php 
+                        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+                            $url = "https://";   
+                        else  
+                            $url = "http://";   
+                                // Append the host(domain name, ip) to the URL.   
+                            $url.= $_SERVER['HTTP_HOST'];   
+                            // Append the requested resource location to the URL   
+                            $url.= $_SERVER['REQUEST_URI'];    
+                            $_SESSION['url'] =$url;
+                    ?>
 <footer class="footer_1 p3">
         <div class="container">
 
@@ -102,12 +114,29 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 1,
                         slidesToScroll: 1
                     }
                 }
             ]
         });
+
+        $('.logo_slider_new').slick({
+
+slidesToShow: 10,
+slidesToScroll: 1,
+autoplay: true,
+autoplaySpeed: 2000,
+responsive: [
+    {
+        breakpoint: 768,
+        settings: {
+            slidesToShow: 5,
+            slidesToScroll: 1
+        }
+    }
+]
+});
     </script>
     <!-- Main Script Tag -->
   

@@ -39,7 +39,7 @@
                     $config['file_name'] = $File_name;
                     $config['overwrite'] = TRUE;
                     $config["allowed_types"] = 'jpg|jpeg|png';
-                    $config["max_size"] = '2048';
+                    $config["max_size"] = '';
     
                     $this->load->library('upload', $config);
     

@@ -179,7 +179,7 @@ if ($this->session->flashdata('success')) {
     $(function() {
         $("#fileupload").change(function() {
             $("#dvPreview").html("");
-            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.pdf|.doc|.docx)$/;
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpeg|.jpg|.png)$/;
             if (regex.test($(this).val().toLowerCase())) {
                 if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
                     $("#dvPreview").show();
