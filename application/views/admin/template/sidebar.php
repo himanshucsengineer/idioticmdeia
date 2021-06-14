@@ -104,7 +104,9 @@
     <li class="nav-item <?php echo ($parts == 'sociallinks')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/sociallinks"><i class="fas fa-fw fa-table" ></i><span >Social Links</span></a>
     </li>
-
+    <li class="nav-item <?php echo ($parts == 'whyus')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/whyus"><i class="fas fa-fw fa-table" ></i><span >Why Us Page</span></a>
+    </li>
     <li class="nav-item ">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#career" aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder" ></i>

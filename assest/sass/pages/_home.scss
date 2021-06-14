@@ -1,107 +1,16 @@
-// // Sections
-// .section_header {
-//   background-color: $primary_clr;
-// }
-
-// .section_handsontech {
-//   background-color: $bg_clr;
-// }
-
-// // Technos
-// .technos {
-//   background-color: $font_clr;
-//   &_icon {
-//     width: 5.8rem;
-//     margin: 0 1rem;
-//     color: #fff;
-//   }
-// }
-
-// // Technos Section Icons
-// .tech_icon {
-//   width: 6.7rem;
-//   padding: 1rem;
-//   transition: all 0.2s ease;
-// }
-// .tech_icon path {
-//   fill: rgb(114, 114, 114);
-// }
-
-// .tech_icon:hover path {
-//   transition: all 0.2s ease;
-//   fill: $secondary_clr;
-// }
-
-// // Cleancode
-// .cleancode {
-//   background-color: $secondary_clr;
-
-//   &_blob {
-//     background-image: url("../../images/bg_blob2.svg");
-//     background-repeat: no-repeat;
-//     background-size: contain;
-//   }
-// }
-
-// // Frameworks
-// .framworks_heading {
-//   color: $secondary_clr;
-// }
-
-// // plans
-// .plans {
-//   &_title {
-//     font-weight: 600;
-//     color: $cta_clr;
-//   }
-
-//   &_price {
-//     font-size: 3rem;
-//     font-weight: 600;
-//   }
-//   &_items {
-//     padding: 0.5rem 0 !important;
-//   }
-// }
-
-// // wordpress
-// .wordpress {
-//   background-image: url("../../images/blob_3.svg");
-//   background-repeat: no-repeat;
-//   background-size: 60%rem;
-// }
-
-// // process
-// .process {
-//   background-color: $font_clr;
-//   color: #fff !important;
-// }
-
-// // GetStart
-// .getstart {
-//   // background-color: rgb(248, 248, 248);
-//   // background-image: url("../images/bg_ill2.svg");
-//   // background-repeat: no-repeat;
-//   // background-size: 20rem;
-//   // background-position: 20rem;
-// }
-
-// .GetStart_inp {
-//   width: 35%;
-// }
-
-// // letsconnect
-// .letsconnect {
-//   background-color: rgb(248, 248, 248);
-// }
-
-// // frameworks
-// .framworks {
-//   background-color: $font_clr;
-//   color: #fff !important;
-// }
-
 // Hero Section
+.tech-slideshow {
+  height: 200px;
+  // max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.brand_b {
+  width: 10rem !important;
+}
 
 .hero_withbg {
   background-image: linear-gradient(
@@ -155,40 +64,10 @@
   }
 }
 
-@media screen and (max-width: 780px) {
-  .hero_withbg {
-    background-position: center;
-    padding: 3rem;
-
-    &--title {
-      font-size: 5rem;
-    }
-
-    &--para {
-      font-size: 2rem !important;
-    }
-
-    &--btn {
-      font-size: 1.8rem;
-      padding: 1rem;
-    }
-
-    &--btn2 {
-      font-size: 1.8rem;
-      min-width: 20rem;
-      font-weight: 600;
-      background-color: #fff;
-      color: #00afff;
-      padding: 1rem;
-      margin-left: 1rem;
-    }
-  }
-}
-
 // End Hero Section
 
 .wyu_img {
-  width: 95% !important;
+  width: 98% !important;
 }
 
 // Brand Section
@@ -338,50 +217,213 @@
   padding: 0.8rem;
 }
 
-
-
-
 // Contact Right
 
-.contact_right{
+.contact_right {
   background-color: #003c6e;
   position: relative;
 }
 
-.contact_right--img1{
+.contact_right--img1 {
   width: 60% !important;
   position: absolute;
   top: 10rem;
   left: 8rem;
 }
-.contact_right--img2{
+.contact_right--img2 {
   width: 60% !important;
   position: absolute;
   top: 23rem;
   left: 16rem;
 }
 
+// Home Slider
+
+.brand_img {
+  width: 10rem;
+  margin: 0.5rem;
+}
+
+@mixin white-gradient {
+  // background: linear-gradient(
+  //   to right,
+  //   rgba(255, 255, 255, 1) 0%,
+  //   rgba(255, 255, 255, 0) 100%
+  // );
+}
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+// Styling
+.slider {
+  background: white;
+  // box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  // height: 50px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  // width: 960px;
+
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+
+  .slide {
+    height: 100px;
+    width: 250px;
+  }
+}
+
+// .testwu {
+//   flex-flow: column-reverse;
+// }
+
 @media screen and (max-width: 780px) {
   .cs_img {
     height: 27rem;
   }
 
-  .contact_right{
+  .contact_right {
     height: 35rem;
   }
 
-
-  .contact_right--img1{
+  .contact_right--img1 {
     width: 60% !important;
     position: absolute;
     top: 3rem;
     left: 3rem;
   }
-  .contact_right--img2{
+  .contact_right--img2 {
     width: 60% !important;
     position: absolute;
     top: 10rem;
     left: 10rem;
+  }
+
+  .wyu_img {
+    width: 80% !important;
+    padding: 1rem;
+  }
+
+  .testwu {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.sidebar_mob {
+  background-color: rgb(250, 250, 250);
+  height: 100%;
+  width: 60%;
+  display: none;
+  transition: all 0.3s ease;
+
+  &-link {
+    padding: 1rem 4rem !important;
+    border-bottom: 1px solid #eee;
+    color: rgb(68, 68, 68);
+  }
+
+  &-link:hover {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.sidebar_visible {
+  z-index: 2000 !important;
+}
+
+.slick-prev:before {
+  color: red;
+  font-size: 30px;
+}
+
+.slick-next:before {
+  color: red;
+  font-size: 30px;
+}
+
+.item {
+  width: 85% !important;
+  padding: 0.8rem;
+}
+
+@media screen and (max-width: 780px) {
+  .section-s {
+    padding: 2rem 0rem;
+  }
+
+  .item {
+    width: 95% !important;
+    padding: 0.8rem;
+  }
+
+  .hero_withbg {
+    background-position: center;
+    padding: 3rem;
+
+    &--title {
+      font-size: 4.5rem;
+    }
+
+    &--para {
+      font-size: 2.4rem !important;
+      line-height: 3.5rem;
+    }
+
+    &--btn {
+      font-size: 1.4rem;
+      padding: 0.8rem;
+      min-width: 12rem;
+      margin-left: 0rem;
+    }
+
+    &--btn2 {
+      font-size: 1.4rem;
+      padding: 0.8rem;
+      min-width: 12rem;
+      margin-left: 0rem;
+    }
+  }
+
+  .site_header {
+    padding: 1.5rem 0 !important;
+  }
+
+  .svc_card {
+    margin: 2rem 2rem;
   }
 }
 

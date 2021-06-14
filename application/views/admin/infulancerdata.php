@@ -76,7 +76,7 @@
                                     <th>Number</th>
                                     <th>Channel Name</th>
                                     <th>Profile Link</th>
-                                  
+                                    <th>User Image</th>
 
                                     <th>Action</th>
 

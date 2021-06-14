@@ -25,7 +25,12 @@
 
     <!-- Css Link -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <!-- End Css Link -->
+
+    <!-- Type Writer Effect Css CDN -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <!-- End Type Writer Effect -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
@@ -34,15 +39,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
         integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
 
 
     <!-- Header -->
-    <header class="site_header p1 lshd">
-        <div class="container">
+    <header class="site_header p1 lshd w-100 fxd">
+        <div class="container_m">
             <div class="row bod justify-content-between align-items-center">
                 <div class="col-2  bod text-center">
                     <span class="">Logo</span>
@@ -93,32 +97,62 @@
                     </nav>
                 </div>
                 <div class="col-3 dhide mblock bod text-center">
-                    <span class=""><i class="fas fa-bars nav_hb"></i></span>
+                    <span class="" onclick="w3_open()"><i class="fas fa-bars nav_hb"></i></span>
                 </div>
             </div>
         </div>
     </header>
     <!-- End Header -->
 
+    <!-- Mobile Side bar -->
+    <div class="sidebar_mob fxd lshd dhide mblock" id="sidemob">
+        <ul class="lstn">
+            <li class="sidebar_mob-link txtr" onclick="w3_close()"><i class="fas fa-times"></i></li>
+            <a href="" class="nodeco">
+                <li class="sidebar_mob-link">Home</li>
+            </a>
+            <a href="" class="nodeco">
+                <li class="sidebar_mob-link">Brand</li>
+            </a>
+            <a href="" class="nodeco">
+                <li class="sidebar_mob-link">Influencer</li>
+            </a>
+            <a href="" class="nodeco">
+                <li class="sidebar_mob-link">Carrer</li>
+            </a>
+            <a href="" class="nodeco">
+                <li class="sidebar_mob-link">Why Us</li>
+            </a>
+
+        </ul>
+    </div>
+
+
+    <!-- End Mobile Sidebar -->
+
 
     <main>
 
+        <div class="spacer"></div>
+        <div class="spacer_m"></div>
+        <!-- <div class="spacer"></div> -->
 
         <!-- Hero -->
-        <section class="hero_withbg">
-            <div class="container">
+        <section class="hero_withbg w-100">
+            <div class="container_m">
                 <div class="row">
                     <div class="col-md-9">
                         <!-- Jumbo Wordblock heading h1 Jumbo-->
                         <div class="wordblock p4">
                             <div class="wordblock__hero">
 
-                                <div class="p3">
+                                <div class="p3 bod">
                                     <h1 class="wordblock__heading hero_withbg--title">Lets TechnoForm
                                     </h1>
                                 </div>
                                 <div class="p3">
-                                    <p class="wordblock__para hero_withbg--para">Lets Achive more Through Social Media
+                                    <p class="wordblock__para hero_withbg--para">Lets Achive more Through <span
+                                            id="txteffect"></span>
                                     </p>
                                 </div>
                                 <div class="p4">
@@ -137,8 +171,8 @@
         <!-- End Hero -->
 
         <!-- About Us -->
-        <section class="sec_2 p2 bod">
-            <div class="container">
+        <section class="sec_2 p2 bod w-100">
+            <div class="container_m">
                 <div class="row jcc aic">
                     <div class="col-md-5">
                         <!-- h2 Wordblock heading  -->
@@ -177,17 +211,72 @@
         </section>
         <!-- End About -->
 
+        <div class="spacer"></div>
 
         <!-- Brand Bar -->
+        <section class="sec_2 p1 bod w-100">
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="../images/brands/b2img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b3img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b4img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b6img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b2img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b4img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b6img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b2img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b4img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b6img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b5img.png" class="brand_img" alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="../images/brands/b2img.png" class="brand_img" alt="" />
+                    </div>
 
-
-
+                </div>
+            </div>
+        </section>
         <!-- End Brand Bar -->
 
-
         <!--Case Studies Slider -->
-        <section class="sec_2 section-xs bod">
-            <div class="container">
+        <section class="sec_2 section-s bod w-100">
+            <div class="container_m">
                 <!-- h1 Wordblock heading  -->
                 <div class="wordblock bod">
                     <div class="wordblock__hero text-center">
@@ -237,8 +326,8 @@
         <!-- End Case Studies -->
 
         <!-- Services -->
-        <section class="sec_2 section-xs bod">
-            <div class="container">
+        <section class="sec_2 section-s bod w-100">
+            <div class="container_m">
                 <!-- h1 Wordblock heading  -->
                 <div class="wordblock bod">
                     <div class="wordblock__hero text-center">
@@ -341,8 +430,8 @@
         <!-- End Services -->
 
         <!-- WhyUs section -->
-        <section class="sec_2 section bod">
-            <div class="container">
+        <section class="sec_2 section-s bod w-100">
+            <div class="container_m">
                 <!-- h1 Wordblock heading  -->
                 <div class="wordblock bod">
                     <div class="wordblock__hero text-center">
@@ -381,7 +470,7 @@
                         <!-- end Single Row 1 -->
 
                         <!-- Single Row 2 -->
-                        <div class="row bod jce aic neg_mt">
+                        <div class="row bod jce aic testwu neg_mt">
                             <div class="col-md-6 bod text-center bod pxy2">
                                 <h4 class="p2">No Language Barrier</h4>
                                 <p>Run your campaigns with our carefully hand picked creators based on not only the
@@ -416,7 +505,7 @@
                         <!-- end Single Row 1 -->
 
                         <!-- Single Row 2 -->
-                        <div class="row bod jce aic neg_mt">
+                        <div class="row bod jce aic testwu neg_mt">
                             <div class="col-md-6 bod text-center bod pxy2">
                                 <h4 class="p2">Over 1500+ Creators</h4>
                                 <p>Run your campaigns with our carefully hand picked creators based on not only the
@@ -432,20 +521,19 @@
 
                         </div>
                         <!-- end Single Row 2 -->
-
                     </div>
                 </div>
-
             </div>
         </section>
         <!-- WhyUs section -->
-
-
     </main>
 
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
     <!-- Footer Section -->
-    <footer class="footer_1 p3">
-        <div class="container">
+    <footer class="footer_1 p3 w-100">
+        <div class="container_m">
 
             <!-- Footer View -->
             <div class="row jcc">
@@ -490,7 +578,7 @@
             <!-- End Footer View -->
 
             <!--  -->
-            <div class="row jcc">
+            <div class="row jcc bod">
                 <div class="col-md-11">
                     <div class="row jcse p3 footer_1--bottombar">
                         <div class="col-md-5">
@@ -531,6 +619,37 @@
 
     <!-- Main Script Tag -->
     <script>
+
+        // W3 Open
+        function w3_open() {
+            document.getElementById("sidemob").style.display = "block";
+        }
+
+        // W3 Close
+        function w3_close() {
+            document.getElementById("sidemob").style.display = "none";
+        }
+
+        // text Effect
+        var app = document.getElementById('txteffect');
+
+        var typewriter = new Typewriter(app, {
+            loop: true
+        });
+
+        typewriter.typeString('Youtube')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Instagram')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Facebook')
+            .start();
+
+        // Texteffect end
+
+
+
         $('.logo_slider').slick({
 
             slidesToShow: 4,

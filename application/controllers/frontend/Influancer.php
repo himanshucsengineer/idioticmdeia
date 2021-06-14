@@ -30,6 +30,30 @@
              $this->form_validation->set_rules('p_link', 'Message', 'trim|required');
             
              if ($this->form_validation->run()) {
+
+                if (!empty($_FILES['images']['name'])) {
+
+                    $File_name = 'resume-' . strtotime(date('YmdHis'));
+    
+                    $config['upload_path'] = APPPATH . '../upload/selfi';
+                    $config['file_name'] = $File_name;
+                    $config['overwrite'] = TRUE;
+                    $config["allowed_types"] = 'jpg|jpeg|png';
+                    $config["max_size"] = '2048';
+    
+                    $this->load->library('upload', $config);
+    
+                    if (!$this->upload->do_upload('images')) {
+    
+                        $this->data['error'] = $this->upload->display_errors();
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
+    
+                        redirect(base_url());
+                    } else {
+                        $dataimage_return = $this->upload->data();
+                        $imageurl = $dataimage_return['file_name'];
+                    }
+                }
                 
                  $data = array(
                             'name'=>$this->input->post('name'),
@@ -37,7 +61,7 @@
                             'mob'=>$this->input->post('mob'),
                             'c_name'=>$this->input->post('c_name'),
                             'p_link'=>$this->input->post('p_link'),
-                            
+                            'pic' => $imageurl
                      );
                
                  if($this->Homemodel->insert_infu($data)){

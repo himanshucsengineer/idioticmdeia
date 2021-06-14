@@ -1,3 +1,9 @@
+<style>
+  .form_bb--btn2{
+      width: 100%;
+  }
+</style>
+
 <main class="main">
     <?php if ($this->session->flashdata('success')) {
         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';

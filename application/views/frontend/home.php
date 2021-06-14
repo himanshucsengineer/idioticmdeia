@@ -2,6 +2,17 @@
     .form_bb--btn2 {
         width: 100%;
     }
+    .hero_withbg--title{
+        font-size: 7rem !important;
+    }
+    .wordblock__heading{
+        font-weight: 400 !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .hero_withbg--title{
+        font-size: 4rem !important;
+    }
+}
 </style>
 <main>
 
@@ -77,11 +88,67 @@
     </section>
     <!-- End About -->
 
+    <div class="spacer"></div>
 
     <!-- Brand Bar -->
+    <section class="sec_2 p1 bod w-100">
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b3img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
+                </div>
 
-
-
+            </div>
+        </div>
+    </section>
     <!-- End Brand Bar -->
 
 
@@ -352,15 +419,15 @@
                 <p class="ltag dim">Please fill with your details</p>
             </div>
             <?php
-                            if ($this->session->flashdata('successinfu')) {
-                                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
-                            } else if ($this->session->flashdata('errorinfu')) {
-                                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfu') . '</div>';
-                            }
+            if ($this->session->flashdata('successinfu')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
+            } else if ($this->session->flashdata('errorinfu')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfu') . '</div>';
+            }
 
 
-                            ?>
-            <form action="<?php echo base_url()?>home/insert_brand" method="POST">
+            ?>
+            <form action="<?php echo base_url() ?>home/insert_brand" method="POST">
 
                 <!-- Fullname and email -->
                 <div class="row p2">
@@ -453,21 +520,21 @@
             <div class="p1 text-center">
                 <p class="ltag dim">Please fill with your details</p>
             </div>
-            <?php  if ($this->session->flashdata('successbrand')) {
-                                echo '<div class="alert alert-success">' . $this->session->flashdata('successbrand') . '</div>';
-                            } else if ($this->session->flashdata('errorbrand')) {
-                                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorbrand') . '</div>';
-                            }
+            <?php if ($this->session->flashdata('successbrand')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successbrand') . '</div>';
+            } else if ($this->session->flashdata('errorbrand')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorbrand') . '</div>';
+            }
 
 
-                            ?>
-            <form action="<?php echo base_url()?>home/insert_infu" method="POST">
+            ?>
+            <form action="<?php echo base_url() ?>home/insert_infu" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col">
                         <div class="mb-4">
                             <div>
                                 <input type="text" name="name" placeholder="Enter Name" class="instyle inf_form">
-                               
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -480,7 +547,7 @@
                         <div class="mb-4">
                             <div>
                                 <input type="email" name="email" placeholder="Email" class="instyle inf_form">
-                               
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -493,7 +560,7 @@
                         <div class="mb-4">
                             <div>
                                 <input type="number" name="mob" placeholder="Mobile Number" class="instyle inf_form">
-                               
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -506,7 +573,7 @@
                         <div class="mb-4">
                             <div>
                                 <input type="text" name="c_name" placeholder="User / Channel Name" class="instyle inf_form">
-                               
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -519,7 +586,7 @@
                         <div class="mb-4">
                             <div>
                                 <input type="text" name="p_link" placeholder="Profile Link" class="instyle inf_form">
-                               
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -527,9 +594,22 @@
 
                 </div>
 
-                
-           
-               
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <div>
+                                <input type="file" id="fileupload" name="images" placeholder="Profile Link" class="instyle inf_form">
+
+                            </div>
+                            <div><span></span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
 
                 <div class="mb-2 text-center">
                     <button class="btn form_bb--btn2 ltag">Submit</button>
@@ -541,27 +621,56 @@
 
 
 
-<?php $errorid= $this->session->flashdata('errorinfu'); $succid= $this->session->flashdata('successinfu'); ?>
-<?php $errorbrnd= $this->session->flashdata('errorbrand'); $succbrnd= $this->session->flashdata('successbrand'); ?>
+<?php $errorid = $this->session->flashdata('errorinfu');
+$succid = $this->session->flashdata('successinfu'); ?>
+<?php $errorbrnd = $this->session->flashdata('errorbrand');
+$succbrnd = $this->session->flashdata('successbrand'); ?>
 <script>
-    var errr = "<?php echo $errorid?>";
-    var succ = "<?php echo $succid?>";
-    if(errr !="" || succ != "" ){
-        $(document).ready(function(){
-        $("#brandmodal").modal('show');
+    var errr = "<?php echo $errorid ?>";
+    var succ = "<?php echo $succid ?>";
+    if (errr != "" || succ != "") {
+        $(document).ready(function() {
+            $("#brandmodal").modal('show');
         });
     }
-
 </script>
 
 
 <script>
-    var errorbrnd = "<?php echo $errorbrnd?>";
-    var succbrnd = "<?php echo $succbrnd?>";
-    if(errorbrnd !="" || succbrnd != "" ){
-        $(document).ready(function(){
-        $("#infumodal").modal('show');
+    var errorbrnd = "<?php echo $errorbrnd ?>";
+    var succbrnd = "<?php echo $succbrnd ?>";
+    if (errorbrnd != "" || succbrnd != "") {
+        $(document).ready(function() {
+            $("#infumodal").modal('show');
         });
     }
+</script>
 
+<script language="javascript" type="text/javascript">
+    $(function() {
+        $("#fileupload").change(function() {
+            $("#dvPreview").html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$/;
+            if (regex.test($(this).val().toLowerCase())) {
+                if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
+                    $("#dvPreview").show();
+                    $("#dvPreview")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                } else {
+                    if (typeof(FileReader) != "undefined") {
+                        $("#dvPreview").show();
+                        $("#dvPreview").append("<img class='thunbnail_image images_preview'/>");
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $("#dvPreview img").attr("src", e.target.result);
+                        }
+                        reader.readAsDataURL($(this)[0].files[0]);
+                    } else {
+                        alert("This browser does not support FileReader.");
+                    }
+                }
+            } else {
+                alert("Please upload a valid file.");
+            }
+        });
+    });
 </script>

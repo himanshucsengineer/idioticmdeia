@@ -7,6 +7,9 @@
 .spacer {
   padding: 1rem;
 }
+.spacer_m {
+  padding: 2rem;
+}
 
 // a
 .nodeco {
@@ -149,6 +152,12 @@
   margin: 3rem !important;
 }
 
+// Fixed
+.fxd {
+  position: fixed;
+  z-index: 1000;
+}
+
 // Negative Margins
 .neg_mt {
   margin-top: -3rem;
@@ -166,6 +175,17 @@
 // Displays
 .dn {
   display: none;
+}
+
+// Text Left
+.txtl {
+  text-align: left;
+}
+.txtr {
+  text-align: right;
+}
+.txtc {
+  text-align: center;
 }
 
 // Flex Box
@@ -198,10 +218,6 @@
 }
 
 //
-.item {
-  width: 25%;
-  padding: 0.8rem;
-}
 
 // .slick-next:before,
 // .slick-prev:before {
