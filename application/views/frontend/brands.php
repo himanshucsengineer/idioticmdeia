@@ -38,6 +38,9 @@
         width: 50%;
         
     }
+    .container_xs{
+        max-width: 85% !important;
+    }
 }
 </style>
     <!-- Main -->
