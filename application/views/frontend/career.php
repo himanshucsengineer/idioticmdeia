@@ -12,7 +12,8 @@
     }
 
 
-    ?>
+    ?><div class="spacer"></div>
+    <div class="spacer"></div>
 
     <!-- Carrer 2 of 2 -->
     <section class="sec_2 section-s bod w-100">
