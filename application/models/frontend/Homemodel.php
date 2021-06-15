@@ -8,7 +8,10 @@ class Homemodel extends CI_Model
 
         return  $this->db->insert('brand', $data);
     }
-
+    
+    public function fetch_homedata(){
+        return $this->db->get('home')->result_array();
+      }
     function insert_infu($data)
     {
 

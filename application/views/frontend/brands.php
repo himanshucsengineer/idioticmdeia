@@ -66,17 +66,11 @@
                 <div class="row jcc">
                     <div class="col-md-12 bod">
                         <div class="logo_slider_new flex">
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b2img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b3img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b4img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b5img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b6img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b2img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b3img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b4img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b5img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b6img.png" alt="" class="img100"></div>
-                            <div class="item"><img src="<?php echo base_url()?>assest/images/brands/b6img.png" alt="" class="img100"></div>
+                            <?php foreach($brands as $value){?>
+                            <div class="item">
+                                <img src="<?php echo base_url()?>upload/brands/<?php echo $value['file']?>" alt="" class="img100">
+                            </div>
+                            <?php }?>
                         </div>
                     </div>
                 </div>

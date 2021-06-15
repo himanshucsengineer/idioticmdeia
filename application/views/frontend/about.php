@@ -1,3 +1,75 @@
+<style>
+ .content {
+  position: relative;
+
+
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
+
+
+</style>
 <main class="main">
 
 
@@ -12,13 +84,9 @@
                             <h1>About Us</h2>
                         </div>
                         <div class="p2">
-                            <p>looking Scarlett Johansson once. As a matter of fact, this got us thinking. About
-                                burgers
-                                and the
-                                ways people love eating them. Found in every part of the world and a favorite
-                                among
-                                various age
-                                groups from freckled teenagers to the wiser generation, </p>
+                            <?php foreach($about as $value){ if($value['sec']=="about"){?>
+                            <p><?php echo $value['content']?></p>
+                            <?php }}?>
                         </div>
                     </div>
                 </div>
@@ -35,30 +103,24 @@
                                 <h1 class="cs_hl">Our Vision</h2>
                             </div>
                             <div class="">
-                                <h4 class="thin_s">Idiotic Media, your partner in building a strong and smart brand.
+                            <?php foreach($about as $value){ if($value['sec']=="vision"){?>
+                                <h4 class="thin_s"><?php echo $value['head']?>
                                 </h4>
+                                <?php }}?>
                             </div>
                         </div>
                     </div>
                     <!-- End Headings -->
 
                     <div class="row">
-                        <div class="col-md-6 p-0">
+                        <div class="col-md-12 p-0">
                             <div class="pxy2 bod">
-                                <p>Your experience with an agency doesn't have to be unpleasant and expensive. Every
-                                    penny you spend will be worth it and our elite team of professionals will make
-                                    sure
-                                    the brand building process is efficient and effective.</p>
+                            <?php foreach($about as $value){ if($value['sec']=="vision"){?>
+                                <p><?php echo $value['content']?></p>
+                            <?php }}?>
                             </div>
                         </div>
-                        <div class="col-md-6 p-0">
-                            <div class="pxy2 bod">
-                                <p>Your experience with an agency doesn't have to be unpleasant and expensive. Every
-                                    penny you spend will be worth it and our elite team of professionals will make
-                                    sure
-                                    the brand building process is efficient and effective.</p>
-                            </div>
-                        </div>
+                       
                     </div>
 
                 </div>
@@ -74,30 +136,24 @@
                                 <h1 class="cs_hl ">Core Team</h2>
                             </div>
                             <div class="">
-                                <h4 class="thin_s">Best talent, creating together
+                            <?php foreach($about as $value){ if($value['sec']=="core"){?>
+                                <h4 class="thin_s"><?php echo $value['head']?>
                                 </h4>
+                            <?php }}?>
                             </div>
                         </div>
                     </div>
                     <!-- End Headings -->
 
                     <div class="row">
-                        <div class="col-md-6 p-0">
+                        <div class="col-md-12 p-0">
                             <div class="pxy2 bod">
-                                <p>Your experience with an agency doesn't have to be unpleasant and expensive. Every
-                                    penny you spend will be worth it and our elite team of professionals will make
-                                    sure
-                                    the brand building process is efficient and effective.</p>
+                            <?php foreach($about as $value){ if($value['sec']=="core"){?>
+                                <p><?php echo $value['content']?></p>
+                                <?php }}?>
                             </div>
                         </div>
-                        <div class="col-md-6 p-0">
-                            <div class="pxy2 bod">
-                                <p>Your experience with an agency doesn't have to be unpleasant and expensive. Every
-                                    penny you spend will be worth it and our elite team of professionals will make
-                                    sure
-                                    the brand building process is efficient and effective.</p>
-                            </div>
-                        </div>
+                        
                     </div>
 
                 </div>
@@ -106,40 +162,25 @@
 
                 <!-- ABout Image Block -->
                 <div class="row jcse ">
+                <?php foreach($about as $value){ if($value['sec']=="team"){?>
                     <div class="col-md-3 pxy3 col-6">
-                        <!-- Service Card -->
-                        <div class="lshd tellus_card">
-                            <img src="<?php echo base_url()?>assest/images/3img.jpg" class="img100 h-100" alt="">
-
-                            <!-- <div class="tellus_card--effect">
-                                <p class="ltag tellus_card--effect_word">Influncer Marketing</p>
-                            </div> -->
-
-                        </div>
+                       
+                            <div class="content lshd tellus_card">
+                                <div class="content-overlay"></div>
+                                <img class="content-image img100 h-100" src="<?php echo base_url()?>upload/aboutus/<?php echo $value['file']?>">
+                                <div class="content-details fadeIn-bottom">
+                                    <h3 class="content-title"><?php echo $value['name']?></h3>
+                                    
+                                </div>
+                            </div>
+                    
+                   
+                        
 
                     </div>
-                    <div class="col-md-3 pxy3 col-6">
-                        <!-- Service Card -->
-                        <div class="lshd tellus_card">
-                            <img src="<?php echo base_url()?>assest/images/4img.jpg" class="img100 h-100" alt="">
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 pxy3 col-6">
-                        <!-- Service Card -->
-                        <div class="lshd tellus_card">
-                            <img src="<?php echo base_url()?>assest/images/5img.jpg" class="img100 h-100" alt="">
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-3 pxy3 col-6">
-                        <!-- Service Card -->
-                        <div class="lshd tellus_card">
-                            <img src="<?php echo base_url()?>assest/images/3img.jpg" class="img100 h-100" alt="">
-                        </div>
-
-                    </div>
+                <?php }}?>
+                  
+                    
 
                 </div>
 
@@ -154,13 +195,15 @@
                                 <h1 class="cs_hl">Idiotic Media HQ</h2>
                             </div>
                             <div class="p2">
-                                <h4 class="thin_s">Where we're located</h4>
+                            <?php foreach($about as $value){ if($value['sec']=="hq"){?>
+                                <h4 class="thin_s"><?php echo $value['head']?></h4>
+                            <?php }}?>
                             </div>
-
+                            <?php foreach($about as $value){ if($value['sec']=="hq"){?>
                             <div class="p1">
-                                We are located in the startup capital of world’s fastest growing economy.
-                                2nd Floor, O4U Plot No. 890, Udyog Vihar Phase-1 Gurugram-122016, Haryana
+                               <?php echo $value['address']?>
                             </div>
+                            <?php }}?>
 
                         </div>
                         <div class="col-md-6 pxy3">

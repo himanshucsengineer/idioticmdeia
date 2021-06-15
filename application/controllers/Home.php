@@ -4,10 +4,13 @@
     {
         parent::__construct();
         $this->load->model('frontend/Homemodel');
+        $this->load->model('admin/Brandsmodel');
+        
     }
 
         public function index(){
-            
+            $data['brands']=$this->Brandsmodel->fetch_details();
+            $data['home']=$this->Homemodel->fetch_homedata();
             $data['casestudy']= $this->Homemodel->fetch_casestudy();
             $this->load->view('frontend/template/header');
             $this->load->view('frontend/template/navbar');

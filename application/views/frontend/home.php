@@ -1,3 +1,5 @@
+
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <style>
     .form_bb--btn2 {
         width: 100%;
@@ -55,7 +57,8 @@
                                 </h1>
                             </div>
                             <div class="p4">
-                                <p class="wordblock__para hero_withbg--para">Lets Achive more Through Social Media
+                                <p class="wordblock__para hero_withbg--para">Lets Achive more Through <span
+                                            id="txteffect"></span>
                                 </p>
                             </div>
                             <div class="p5">
@@ -82,8 +85,10 @@
                             <div class="p1"><span class="wordblock__tag mtag">About Us</span>
                             </div>
                             <div class="p2 ">
-                                <h2 class="wordblock__heading">WE DO WHAT WE HAVE
+                            <?php foreach($home as $val){if($val['sec']=="about"){?>
+                                <h2 class="wordblock__heading"><?php echo $val['head']?>
                                 </h2>
+                                <?php }}?>
                             </div>
                         </div>
                     </div>
@@ -95,12 +100,10 @@
                         <div class="wordblock__hero text-center">
 
                             <div class="p1">
-                                <p class="wordblock__para">We appreciate your trust greatly. Our clients choose us
-                                    and our products because they know we are the best.
+                            <?php foreach($home as $val){if($val['sec']=="about"){?>
+                                <p class="wordblock__para"><?php echo $val['content']?>
                                 </p>
-                                <p>looking Scarlett Johansson once. As a matter of fact, this got us thinking. About
-                                    burgers and the
-                                </p>
+                                <?php }}?>
                             </div>
                         </div>
                     </div>
@@ -118,57 +121,11 @@
     <section class="sec_2 p1 bod w-100">
         <div class="slider">
             <div class="slide-track">
+            <?php foreach($brands as $value){?>
                 <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
+                    <img src="<?php echo base_url()?>upload/brands/<?php echo $value['file']?>" class="brand_img" alt="" />
                 </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b3img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b4img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b6img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b5img.png" class="brand_img" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="<?php echo base_url()?>assest/images/brands/b2img.png" class="brand_img" alt="" />
-                </div>
+                <?php }?>
 
             </div>
         </div>
@@ -249,67 +206,21 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row jcc aic">
+                    <?php foreach($home as $val){ if($val['sec']=="service"){?>
                         <div class="col-md-4 p-0">
                             <!-- Service Card -->
                             <div class="svc_card text-center">
-                                <img src="<?php echo base_url() ?>assest/images/normals/hm_icimg1.png" class="svc_card--icon sv_img" alt="">
-                                <h3 class="svc_card--title p1">Media</h3>
-                                <p class="p1">Boosting your brand's message through a tight knit network of creators
-                                    with a
-                                    massive
-                                    worldwide reach.</p>
+                                <img src="<?php echo base_url() ?>upload/home/<?php echo $val['file']?>" class="svc_card--icon sv_img" alt="">
+                                <h3 class="svc_card--title p1"><?php echo $val['head']?></h3>
+                                <p class="p1"><?php echo $val['content']?></p>
                             </div>
                             <!-- Service Card -->
 
                         </div>
-                        <div class="col-md-4 p-0">
-                            <!-- Service Card -->
-                            <div class="svc_card text-center pxy3">
-                                <img src="<?php echo base_url() ?>assest/images/normals/hm_icimg2.png" class="svc_card--icon sv_img" alt="svc_card--icon">
-                                <h3 class="svc_card--title p1">Branded Campaign</h3>
-                                <p class="p1">Enrich your business capabilities with our custom web design and
-                                    development
-                                    services to</p>
-                            </div>
-                            <!-- Service Card -->
-
-                        </div>
-                        <div class="col-md-4 p-0">
-                            <!-- Service Card -->
-                            <div class="svc_card text-center ">
-                                <img src="<?php echo base_url() ?>assest/images/normals/hm_icimg3.png" class="svc_card--icon sv_img" alt="svc_card--icon">
-                                <h3 class="svc_card--title p1">Digital Production</h3>
-                                <p class="p1">Collaborations achieving award winning results and exceeding
-                                    expectations.</p>
-                            </div>
-                            <!-- Service Card -->
-
-                        </div>
-                        <div class="col-md-4 p-0">
-                            <!-- Service Card -->
-                            <div class="svc_card text-center ">
-                                <img src="<?php echo base_url() ?>assest/images/normals/hm_icimg4.png" class="svc_card--icon sv_img" alt="svc_card--icon">
-                                <h3 class="svc_card--title p1">Digital Production</h3>
-                                <p class="p1">Boosting your brand's message through a tight knit network of creators
-                                    with a
-                                    massive
-                                    worldwide reach.</p>
-                            </div>
-                            <!-- Service Card -->
-
-                        </div>
-                        <div class="col-md-4 p-0">
-                            <!-- Service Card -->
-                            <div class="svc_card text-center svc_card--2">
-                                <img src="<?php echo base_url() ?>assest/images/normals/hm_icimg5.png" class="svc_card--icon sv_img" alt="svc_card--icon">
-                                <h3 class="svc_card--title p1">Digital Production</h3>
-                                <p class="p1">Enrich your business capabilities with our custom web design and
-                                    development
-                                    services to</p>
-                            </div>
-                            <!-- Service Card -->
-
-                        </div>
+                        
+                        <?php }}?>
+                        
+                        
                     </div>
 
                 </div>
@@ -346,73 +257,61 @@
                 <div class="col-md-10">
 
                     <!--  Single Row 1 -->
+                    <?php foreach($home as $val){ if($val['sec']=="first"){?>
                     <div class="row bod aic">
                         <div class="col-md-3 bod pxy1 text-center">
-                            <img src="<?php echo base_url() ?>assest/images/normals/wu_img2.png" alt="" class="img100 wyu_img">
+                            <img src="<?php echo base_url() ?>upload/home/<?php echo $val['file']?>" alt="" class="img100 wyu_img">
                         </div>
                         <div class="col-md-6 bod text-center bod pxy2">
-                            <h4 class="p2">Over 1500+ Creators</h4>
-                            <p>Run your campaigns with our carefully hand picked creators based on not only the
-                                'follower count'
-                                but content quality, user engagements, overall influence, impact, relevance, and
-                                other
-                                important
-                                factors.</p>
+                            <h4 class="p2"><?php echo $val['head']?></h4>
+                            <p><?php echo $val['content']?></p>
                         </div>
                     </div>
+                    <?php }}?>
                     <!-- end Single Row 1 -->
 
                     <!-- Single Row 2 -->
+                    <?php foreach($home as $val){ if($val['sec']=="second"){?>
                     <div class="row bod jce aic neg_mt">
                         <div class="col-md-6 bod text-center bod pxy2">
-                            <h4 class="p2">No Language Barrier</h4>
-                            <p>Run your campaigns with our carefully hand picked creators based on not only the
-                                'follower count'
-                                but content quality, user engagements, overall influence, impact, relevance, and
-                                other
-                                important
-                                factors.</p>
+                            <h4 class="p2"><?php echo $val['head']?></h4>
+                            <p><?php echo $val['content']?></p>
                         </div>
                         <div class="col-md-3 bod pxy1 text-center">
-                            <img src="<?php echo base_url() ?>assest/images/normals/wu_img3.png" alt="" class="img100 wyu_img">
+                            <img src="<?php echo base_url() ?>upload/home/<?php echo $val['file']?>" alt="" class="img100 wyu_img">
                         </div>
 
                     </div>
+                    <?php }}?>
                     <!-- end Single Row 2 -->
 
                     <!--  Single Row 1 -->
+                    <?php foreach($home as $val){ if($val['sec']=="third"){?>
                     <div class="row bod aic neg_mt">
                         <div class="col-md-3 bod pxy1 text-center">
-                            <img src="<?php echo base_url() ?>assest/images/normals/wu_img4.png" alt="" class="img100 wyu_img">
+                            <img src="<?php echo base_url() ?>upload/home/<?php echo $val['file']?>" alt="" class="img100 wyu_img">
                         </div>
                         <div class="col-md-6 bod text-center bod pxy2">
-                            <h4 class="p2">Over 1500+ Creators</h4>
-                            <p>Run your campaigns with our carefully hand picked creators based on not only the
-                                'follower count'
-                                but content quality, user engagements, overall influence, impact, relevance, and
-                                other
-                                important
-                                factors.</p>
+                            <h4 class="p2"><?php echo $val['head']?></h4>
+                            <p><?php echo $val['content']?></p>
                         </div>
                     </div>
+                    <?php }}?>
                     <!-- end Single Row 1 -->
 
                     <!-- Single Row 2 -->
+                    <?php foreach($home as $val){ if($val['sec']=="fourth"){?>
                     <div class="row bod jce aic neg_mt">
                         <div class="col-md-6 bod text-center bod pxy2">
-                            <h4 class="p2">Over 1500+ Creators</h4>
-                            <p>Run your campaigns with our carefully hand picked creators based on not only the
-                                'follower count'
-                                but content quality, user engagements, overall influence, impact, relevance, and
-                                other
-                                important
-                                factors.</p>
+                            <h4 class="p2"><?php echo $val['Head']?></h4>
+                            <p><?php echo $val['content']?>.</p>
                         </div>
                         <div class="col-md-3 bod pxy1 text-center">
-                            <img src="<?php echo base_url() ?>assest/images/normals/wu_img5.png" alt="" class="img100 wyu_img">
+                            <img src="<?php echo base_url() ?>upload/home/<?php echo $val['file']?>" alt="" class="img100 wyu_img">
                         </div>
 
                     </div>
+                    <?php }}?>
                     <!-- end Single Row 2 -->
 
                 </div>
@@ -692,4 +591,26 @@ $succbrnd = $this->session->flashdata('successbrand'); ?>
             }
         });
     });
+</script>
+
+
+<script>
+// text Effect
+var app = document.getElementById('txteffect');
+
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+
+typewriter.typeString('Youtube')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('Instagram')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('Facebook')
+    .start();
+
+// Texteffect end
+
 </script>

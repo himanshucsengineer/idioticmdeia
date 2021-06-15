@@ -104,8 +104,15 @@
     <li class="nav-item <?php echo ($parts == 'sociallinks')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/sociallinks"><i class="fas fa-fw fa-table" ></i><span >Social Links</span></a>
     </li>
-
-    
+    <li class="nav-item <?php echo ($parts == 'home')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/home"><i class="fas fa-fw fa-table" ></i><span >Home Page</span></a>
+    </li>
+    <li class="nav-item <?php echo ($parts == 'about')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/about"><i class="fas fa-fw fa-table" ></i><span >About us</span></a>
+    </li>
+    <li class="nav-item <?php echo ($parts == 'brands')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/brands"><i class="fas fa-fw fa-table" ></i><span >Add Brands</span></a>
+    </li>
     <li class="nav-item <?php echo ($parts == 'whyus')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/whyus"><i class="fas fa-fw fa-table" ></i><span >Why Us Page</span></a>
     </li>

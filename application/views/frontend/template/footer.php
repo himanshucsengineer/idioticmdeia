@@ -1,5 +1,9 @@
 <!-- Footer Section -->
-
+<style>
+    .foo_logo{
+        width: 150px;
+    }
+</style>
 <?php 
                         if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
                             $url = "https://";   
@@ -19,7 +23,7 @@
                 <div class="col-md-10">
                     <div class="row jcsb">
                         <div class="col-md-6 pxy2 bod">
-                            <h4 class="p1">Company Icon</h4>
+                            <img src="<?php echo base_url()?>assest/images/logo.svg" alt="" class="foo_logo">
                             <p class="p1">India's top influencer marketing platform for campaigns on Instagram, YouTube,
                                 TikTok and
                                 more.
@@ -65,7 +69,7 @@
                 <div class="col-md-11">
                     <div class="row jcse p3 footer_1--bottombar">
                         <div class="col-md-5">
-                            <p class="bold6 stag">Copyright@ IdioticMedia </p>
+                            <p class="bold6 stag">Copyright@ LatestMedia </p>
                         </div>
                         <div class="col-md-3">
                             <p><span class="stag dim">Creacted By Codevweb</span></p>
