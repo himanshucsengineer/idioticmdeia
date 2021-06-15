@@ -8,6 +8,25 @@
         font-size: 7rem !important;
     }
 
+.member_flexx{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.member_flexx .left{
+    width: 30%;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+.member_flexx .left label{
+    background-color: #e4e1e19c;
+    cursor: pointer;
+    border-radius:4px 0px 0px 4px ;
+}
+.member_flexx .right{
+    width: 70%;
+}
     .wordblock__heading {
         font-weight: 400 !important;
     }
@@ -541,7 +560,17 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="file" id="fileupload" name="images" placeholder="Profile Link" class="instyle inf_form">
+                            <div class="member_flexx">
+                            <div class="left">
+                                <label for="imageUpload"  class="instyle inf_form"> Upload Photo</label>
+                                <input id="imageUpload" name="images" style="display:none;" type="file">
+                            </div>
+                            <div class="right">
+                            
+                            <input type="text" class="instyle inf_form" id="imagename"  value="" placeholder="Upload Your Photo" readonly>
+                            </div>
+                        </div>
+                   
 
                             </div>
                             <div><span></span></div>
@@ -637,4 +666,13 @@ $succbrnd = $this->session->flashdata('successbrand'); ?>
         .start();
 
     // Texteffect end
+</script>
+
+
+<script>
+    $("#imageUpload").change(function() {
+  filename = this.files[0].name;
+  document.getElementById('imagename').value = filename;
+  console.log(filename);
+});
 </script>

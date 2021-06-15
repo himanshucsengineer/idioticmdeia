@@ -11,6 +11,25 @@
     color: #337ab7 !important;
     
  }
+ .member_flexx{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.member_flexx .left{
+    width: 30%;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+.member_flexx .left label{
+    background-color: #e4e1e19c;
+    cursor: pointer;
+    border-radius:4px 0px 0px 4px ;
+}
+.member_flexx .right{
+    width: 70%;
+}
  .accordion-button:focus{
      border-color: white !important;
      box-shadow: none !important;
@@ -104,8 +123,16 @@
                             </div>
                             <div class="mb-5">
                                 <div>
-                                    <input type="file" class="instyle inf_form" placeholder="Profile Link"
-                                    id="fileupload" name="images">
+                                <div class="member_flexx">
+                            <div class="left">
+                                <label for="imageUpload"  class="instyle inf_form"> Upload Photo</label>
+                                <input id="imageUpload" name="images" style="display:none;" type="file">
+                            </div>
+                            <div class="right">
+                            
+                            <input type="text" class="instyle inf_form" id="imagename"  value="" placeholder="Upload Your Photo" readonly>
+                            </div>
+                        </div>
                                 </div>
                                 <div><span></span></div>
                             </div>
