@@ -72,7 +72,7 @@ public function why_us(){
               $this->data['error'] = $this->upload->display_errors();
               $this->session->set_flashdata('error', $this->upload->display_errors());
 
-              redirect(base_url());
+              redirect(base_url().'admin/home');
           } else {
               $dataimage_return = $this->upload->data();
               $imageurl = $dataimage_return['file_name'];
@@ -136,7 +136,7 @@ public function services(){
                 $this->data['error'] = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $this->upload->display_errors());
   
-                redirect(base_url());
+                redirect(base_url().'admin/home');
             } else {
                 $dataimage_return = $this->upload->data();
                 $imageurl = $dataimage_return['file_name'];

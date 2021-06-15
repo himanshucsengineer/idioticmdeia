@@ -9,7 +9,8 @@
     }
 </style>
 
-<header class="site_header p1 lshd">
+<header class="site_header w-100 p1 lshd fxd">
+
         <div class="container">
             <div class="row bod justify-content-between align-items-center">
                 <div class="col-2  bod text-center ">
