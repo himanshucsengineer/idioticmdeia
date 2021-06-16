@@ -22,16 +22,16 @@
             <div class="row jcc">
                 <div class="col-md-10">
                     <div class="row jcsb">
-                        <div class="col-md-6 pxy2 bod">
-                            <img src="<?php echo base_url()?>assest/images/logo.svg" alt="" class="foo_logo">
-                            <p class="p1">India's top influencer marketing platform for campaigns on Instagram, YouTube,
-                                TikTok and
-                                more.
-                            </p>
-                            <?php
+                    <?php
 							$socials_datas=Utility::getsocial();
-							//print_r($socials_datas->insta);
+							$site_datas=Utility::sitedata();
+                            $site_logo=Utility::sitelogo();
             ?>  
+                        <div class="col-md-6 pxy2 bod">
+                            <img src="<?php echo base_url()?>upload/sitesetting/<?php echo $site_logo->logo;?>" alt="" class="foo_logo">
+                            <p class="p1"><?php echo $site_datas->content;?>
+                            </p>
+                           
                             <div class="flex">
                                 <a href="<?php echo $socials_datas->facebook;?>" target="_blank"> <img src="<?php echo base_url()?>assest/images/icons/fb_icon.svg" alt="" class="icon_s"></a>
                                 <a href="<?php echo $socials_datas->insta;?>" target="_blank"> <img src="<?php echo base_url()?>assest/images/icons/insta_icon.svg" alt="" class="icon_s"></a>

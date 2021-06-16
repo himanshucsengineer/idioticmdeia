@@ -11,7 +11,15 @@
         }
         public static function sitedata(){
             $CI =& get_instance();
-            $CI->db->select('*')->from('site_setting');
+            $CI->db->select('content')->where('id',2)->from('sitesetting');
+            $getSite = $CI->db->get()->row();
+            return $getSite;
+
+        }
+
+        public static function sitelogo(){
+            $CI =& get_instance();
+            $CI->db->select('logo')->where('id',1)->from('sitesetting');
             $getSite = $CI->db->get()->row();
             return $getSite;
 

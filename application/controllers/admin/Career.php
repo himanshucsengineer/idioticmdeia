@@ -8,7 +8,7 @@ class Career extends CI_Controller
 		parent::__construct();
         if(! $this->session->userdata('vendorAuth')){
         redirect('login');}
-        //$this->load->model('admin/Branddatamodel');
+        $this->load->model('admin/Careermodel');
     }
 
 
@@ -68,7 +68,48 @@ public function create_post(){
 
  }
 
-   
+ public function addinventory_api(){
+
+    $getPurchaseData = $this->Careermodel->fetch_career();
+
+
+    foreach ($getPurchaseData as $key => $value) { 
+
+
+        $arrya_json[] = array($value['id'],$value['job_name'],$value['job_type'],$value['location'],$value['exp'],$value['lang'],$value['descc'],$value['quali'],'<a class="edit" href="'.base_url().'admin/brands/galleryedit/'.$value['id'].'" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+       <a class="delete_sliders" data-id="'.$value['id'].'"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>' );
+        }
+         echo json_encode(array('data'=>$arrya_json));
+    }
+
+    public function delete_listed_job(){ 
+    
+        if($this->input->post('deletesliderId'))
+    {
+      $this->form_validation->set_rules('deletesliderId','text','required');
+      if($this->form_validation->run() == true)
+      {
+        $getDeleteStatus = $this->Careermodel->delete_listed_job($this->input->post('deletesliderId'));
+        if($getDeleteStatus['message'] == 'yes')
+        {
+          $this->session->set_flashdata('success','Gallery  deleted successfully');
+          redirect(base_url()."admin/career");
+        }
+        else
+        {
+          $this->session->set_flashdata('error','Something went wrong. Please try again');
+        redirect(base_url()."admin/career");
+          
+        }
+      }
+      else
+      {
+        $this->session->set_flashdata('error','Something went wrong. Please try again');
+        redirect(base_url()."admin/career");
+
+      }
+    }
+  }
 
 
 

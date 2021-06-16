@@ -2,9 +2,44 @@
   .form_bb--btn2{
       width: 100%;
   }
+
+  .member_flexx{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.member_flexx .left{
+    width: 30%;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+.member_flexx .left label{
+    background-color: #e4e1e19c;
+    cursor: pointer;
+    border-radius:4px 0px 0px 4px ;
+}
+.member_flexx .right{
+    width: 70%;
+}
+@media only screen and (max-width: 600px) {
+        .member_flexx .left{
+    width: 50%;
+    
+    
+}
+.member_flexx .right{
+    width: 50%;
+}
+}
 </style>
 
 <main class="main">
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <!-- Carrer 2 of 2 -->
     <?php if ($this->session->flashdata('success')) {
         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
     } else if ($this->session->flashdata('error')) {
@@ -12,10 +47,7 @@
     }
 
 
-    ?><div class="spacer"></div>
-    <div class="spacer"></div>
-
-    <!-- Carrer 2 of 2 -->
+    ?>
     <section class="sec_2 section-s bod w-100">
         <div class="container_xs">
 
@@ -35,6 +67,7 @@
 
                 </div>
                 <div class="col-md-9 bod pxy1">
+               
                     <div id="job">
                         <?php foreach ($career as $value) {
                             if ($value['job_type'] == "Job") { ?>
@@ -225,7 +258,18 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="file" id="fileupload" name="images" class="instyle inf_form">
+
+                            <div class="member_flexx">
+                            <div class="left">
+                                <label for="imageUpload"  class="instyle inf_form"> Upload CV</label>
+                                <input id="imageUpload" name="images" style="display:none;" type="file">
+                            </div>
+                            <div class="right">
+                            
+                            <input type="text" class="instyle inf_form" id="imagename"  value="" placeholder="Upload Your Resume" readonly>
+                            </div>
+                        </div>
+                                
 
                             </div>
                             <div><span></span></div>
@@ -304,7 +348,17 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="file" id="fileuplo" name="images" class="instyle inf_form">
+                            <div class="member_flexx">
+                            <div class="left">
+                                <label for="imageUploa"  class="instyle inf_form"> Upload CV</label>
+                                <input id="imageUploa" name="images" style="display:none;" type="file">
+                            </div>
+                            <div class="right">
+                            
+                            <input type="text" class="instyle inf_form" id="imagenam"  value="" placeholder="Upload Your Resume" readonly>
+                            </div>
+                        </div>
+                                
 
                             </div>
                             <div><span></span></div>
@@ -454,4 +508,20 @@
             }
         });
     });
+</script>
+
+<script>
+    $("#imageUploa").change(function() {
+  filename = this.files[0].name;
+  document.getElementById('imagenam').value = filename;
+  console.log(filename);
+});
+</script>
+
+<script>
+    $("#imageUpload").change(function() {
+  filename = this.files[0].name;
+  document.getElementById('imagename').value = filename;
+  console.log(filename);
+});
 </script>

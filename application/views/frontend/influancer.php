@@ -50,6 +50,8 @@
 <main class="main">
 <div class="spacer"></div>
 <div class="spacer"></div>
+<div class="spacer"></div>
+    <div class="spacer"></div>
         <!-- Influencer 2 of 2 -->
         <section class="sec_2 section-xs bod w-100">
             <div class="container_s">

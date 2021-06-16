@@ -771,11 +771,7 @@ a {
   width: 10rem !important;
 }
 
-.hero_withbg {
-  background-image: linear-gradient(to right, rgba(37, 37, 37, 0.795), rgba(24, 24, 24, 0.103)), url("../images/testimg.jpg");
-  background-position: center;
-  padding: 16rem;
-}
+
 
 .hero_withbg--title {
   color: #00afff;

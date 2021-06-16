@@ -24,6 +24,82 @@ class Home extends CI_Controller
 }
 
 
+
+
+
+public function home_bg(){
+    $this->load->model('frontend/Homemodel');
+    
+    $this->input->post('formSubmit');
+
+    if (!empty($_FILES['bg_image']['name'])) {
+
+        $File_name = '' ;
+
+        $config['upload_path'] = APPPATH . '../upload/home';
+        $config['file_name'] = $File_name;
+        $config['overwrite'] = TRUE;
+        $config["allowed_types"] = 'jpg|jpeg|png|gif|mp4';
+        $config["max_size"] = '';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('bg_image')) {
+
+            $this->data['error'] = $this->upload->display_errors();
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+
+            redirect(base_url().'admin/home');
+        } else {
+            $dataimage_return = $this->upload->data();
+            $imageurl = $dataimage_return['file_name'];
+        }
+    }
+
+
+
+    $data = array(
+        'file'=>$imageurl,
+        
+    );
+    if($this->Homemodel->home_bg($data)){
+        $this->session->set_flashdata('error','Error in updating'); 
+        redirect(base_url().'admin/home');  
+    }else{
+        $this->session->set_flashdata('success','Updated Successfully'); 
+        redirect(base_url().'admin/home'); 
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  public function home_main_head(){
+    $this->load->model('frontend/Homemodel');
+    
+    $this->input->post('formSubmit');
+    $data = array(
+        'head'=>$this->input->post('head'),
+        
+    );
+    if($this->Homemodel->home_main_head($data)){
+        $this->session->set_flashdata('error','Error in updating'); 
+        redirect(base_url().'admin/home');  
+    }else{
+        $this->session->set_flashdata('success','Updated Successfully'); 
+        redirect(base_url().'admin/home'); 
+    }
+  }
+
+
+
 public function home_about(){
   $this->load->model('frontend/Homemodel');
   

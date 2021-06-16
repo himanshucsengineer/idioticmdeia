@@ -104,6 +104,10 @@
     <li class="nav-item <?php echo ($parts == 'sociallinks')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/sociallinks"><i class="fas fa-fw fa-table" ></i><span >Social Links</span></a>
     </li>
+
+    <li class="nav-item <?php echo ($parts == 'sitesetting')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/sitesetting"><i class="fas fa-fw fa-table" ></i><span >Site Setting</span></a>
+    </li>
     <li class="nav-item <?php echo ($parts == 'home')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/home"><i class="fas fa-fw fa-table" ></i><span >Home Page</span></a>
     </li>

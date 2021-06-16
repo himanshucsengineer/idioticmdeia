@@ -25,7 +25,7 @@
              $this->form_validation->set_rules('mob', 'Number', 'trim|required');
              $this->form_validation->set_rules('linkdin', 'Choose Option', 'trim|required');
              $this->form_validation->set_rules('msg', 'Message', 'trim|required');
-            
+             $this->form_validation->set_rules('profile_link', 'profile_link', 'trim|required');
              if ($this->form_validation->run()) {
                 
                  $data = array(
@@ -34,7 +34,7 @@
                             'mob'=>$this->input->post('mob'),
                             'linkdin'=>$this->input->post('linkdin'),
                             'msg'=>$this->input->post('msg'),
-                            
+                            'profile_link'=>$this->input->post('profile_link'),
                      );
                
                  if($this->Contactmodel->insert_data($data)){

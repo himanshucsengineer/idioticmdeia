@@ -8,13 +8,17 @@
         width: 150px;
     }
 </style>
+<?php
+	$site_logo=Utility::sitelogo();
+?>  
 
+            
 <header class="site_header w-100 p1 lshd fxd">
 
         <div class="container">
             <div class="row bod justify-content-between align-items-center">
                 <div class="col-2  bod text-center ">
-                    <a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assest/images/logo.svg" alt="Logo" class="logo"></a>
+                    <a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>upload/sitesetting/<?php echo $site_logo->logo;?>" alt="Logo" class="logo"></a>
                 </div>
                 <div class="col-6 bod">
                     <nav class="nav mhide nav_mob">

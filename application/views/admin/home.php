@@ -79,6 +79,42 @@ if ($this->session->flashdata('success')) {
 
 
 ?>
+
+
+
+<div class="all_post">
+    <div class="container">
+        <h3>Background Image</h3>
+        <hr>
+        <form action="<?php echo base_url() ?>admin/home/home_bg" method="post" enctype="multipart/form-data">
+    
+            
+            <label for="">UPload New Background Image</label>
+            <input type="file" id="fileup" name="bg_image">
+            <button>Update</button>
+    
+        </form>
+    </div>
+</div>
+
+<div class="all_post">
+    <div class="container">
+        <h3>Main Heading</h3>
+        <hr>
+        <form action="<?php echo base_url() ?>admin/home/home_main_head" method="post" >
+        <?php foreach($home as $value){if($value['sec']=="main"){?>
+        <label for="">Heading</label>
+        <input type="text" name="head" placeholder="Enter Heading" value="<?php echo $value['head'] ?>" required>
+            
+            <button>Update</button>
+            <?php }}?>
+        </form>
+    </div>
+</div>
+
+
+
+
 <div class="all_post">
     <div class="container">
         <h3>About us</h3>
@@ -273,6 +309,38 @@ if ($this->session->flashdata('success')) {
         });
     });
 </script>
+
+
+<script language="javascript" type="text/javascript">
+    $(function() {
+        $("#fileup").change(function() {
+            $("#dvPreview").html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpeg|.jpg|.png|.gif|.mp4)$/;
+            if (regex.test($(this).val().toLowerCase())) {
+                if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
+                    $("#dvPreview").show();
+                    $("#dvPreview")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                } else {
+                    if (typeof(FileReader) != "undefined") {
+                        $("#dvPreview").show();
+                        $("#dvPreview").append("<img class='thunbnail_image images_preview'/>");
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $("#dvPreview img").attr("src", e.target.result);
+                        }
+                        reader.readAsDataURL($(this)[0].files[0]);
+                    } else {
+                        alert("This browser does not support FileReader.");
+                    }
+                }
+            } else {
+                alert("Please upload a valid file.");
+            }
+        });
+    });
+</script>
+
+
 
 <div id="deletePurchaseModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -61,6 +61,9 @@
         outline: none;
         border: none;
     }
+    .all_post{
+        margin-bottom: 6rem;
+    }
 </style>
 
 <div class="all_post">
@@ -105,7 +108,89 @@
 </div>
 
 
+<div class="all_post">
+    <div class="container">
+        <h3>All Listed Job</h3>
+        <hr>
+
+        
+    
+            
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card-box table-responsive">
+
+                        <table id="lowinventory" data-order='[[ 0, "desc" ]]' style="width:100%" class="table table-striped table-bordered table_shop_custom display">
+                            <thead>
+                                <tr>
+
+                                    <th>SR. NO.</th>
+                                    <th>Name</th>
+                                    <th>Job Type</th>
+                                    <th>Location</th>
+                                    <th>Experiance</th>
+                                    <th>Language</th>
+                                
+                                  <th>Job Description</th>
+                                    <th>Job Qualification</th>
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+  
+    </div>
+</div>
 
 
 
+<div id="deletePurchaseModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <?php echo form_open(base_url('admin/career/delete_listed_job'), array('method' => 'post')); ?>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+                <h4 class="modal-title">Delete Course</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="hidden" class="deletesliderId" name="deletesliderId" />
+                        <h4><b>Do you really want to Delete this Course ?</b></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-info" name="deleteslider" value="Delete">
+            </div>
+        </div>
+        <?php echo form_close(); ?>
+    </div>
+</div>
 
+
+<script>
+    $(document).ready(function() {
+        $('#lowinventory').DataTable({
+            "ajax": "<?php echo base_url(); ?>admin/career/addinventory_api"
+        });
+
+
+        $(document).on('click', '.delete_sliders', function() {
+
+            $('.deletesliderId').val($(this).attr('data-id'));
+            $('#deletePurchaseModal').modal('show');
+
+        });
+
+    });
+</script>

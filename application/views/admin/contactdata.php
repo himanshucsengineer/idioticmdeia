@@ -74,9 +74,9 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Number</th>
-                                    <th>Linkedin</th>
+                                    <th>Claim</th>
                                     <th>Message</th>
-                                   
+                                   <th>Profile Link</th>
 
                                     <th>Action</th>
 
@@ -145,3 +145,4 @@
 
     });
 </script>
+

@@ -1,5 +1,17 @@
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <style>
+
+.hero_withbg {
+  background-image:url("assest/images/testimg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 20%) !important;
+  padding: 16rem;
+}
+
+
+
     .form_bb--btn2 {
         width: 100%;
     }
@@ -54,7 +66,40 @@
         height: 350px;
     }
 
+    #text {
+	display: inline-block;
+	
+	color: orange;
+	
+}
+
+#cursor {
+	display: none;
+
+	width: 3px;
+   
+	background-color: orange;
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	50% { 
+		background-color: orange; 
+	}
+}
+
     @media only screen and (max-width: 600px) {
+        .member_flexx .left{
+    width: 50%;
+    
+    
+}
+.member_flexx .right{
+    width: 50%;
+}
         .hero_withbg--title {
             font-size: 4rem !important;
         }
@@ -71,9 +116,12 @@
 </style>
 <main>
 
-
+<div class="spacer"></div>
+    <div class="spacer"></div>
+   
+   
     <!-- Hero -->
-    <section class="hero_withbg">
+    <section class="hero_withbg" id="dynamicbg">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
@@ -82,11 +130,14 @@
                         <div class="wordblock__hero">
 
                             <div class="p5">
-                                <h1 class="wordblock__heading hero_withbg--title">Lets TechnoForm
+                            <?php foreach ($home as $val) {
+                            if ($val['sec'] == "main") { ?>
+                                <h1 class="wordblock__heading hero_withbg--title"><?php echo $val['head']?>
                                 </h1>
+                            <?php }}?>
                             </div>
                             <div class="p4">
-                                <p class="wordblock__para hero_withbg--para">Lets Achive more Through <span id="txteffect"></span>
+                                <p class="wordblock__para hero_withbg--para">Lets Achive more Through <span id="text"></span><span id="cursor"></span>
                                 </p>
                             </div>
                             <div class="p5">
@@ -381,10 +432,10 @@
                 <p class="ltag dim">Please fill with your details</p>
             </div>
             <?php
-            if ($this->session->flashdata('successinfu')) {
-                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
-            } else if ($this->session->flashdata('errorinfu')) {
-                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfu') . '</div>';
+            if ($this->session->flashdata('successbrand')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successbrand') . '</div>';
+            } else if ($this->session->flashdata('errorbrand')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorbrand') . '</div>';
             }
 
 
@@ -482,10 +533,10 @@
             <div class="p1 text-center">
                 <p class="ltag dim">Please fill with your details</p>
             </div>
-            <?php if ($this->session->flashdata('successbrand')) {
-                echo '<div class="alert alert-success">' . $this->session->flashdata('successbrand') . '</div>';
-            } else if ($this->session->flashdata('errorbrand')) {
-                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorbrand') . '</div>';
+            <?php if ($this->session->flashdata('successinfu')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
+            } else if ($this->session->flashdata('errorinfu')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfu') . '</div>';
             }
 
 
@@ -593,6 +644,32 @@
 
 
 
+<?php foreach ($home as $val) {
+        if ($val['sec'] == "bg") { 
+            $bg_img_url = 'upload/home/'.$val['file'];   
+                             
+        }
+    }
+                    
+?>
+
+
+<script>
+$(document).ready(function(){
+    var imgurl = '<?php echo $bg_img_url?>';
+   
+    document.getElementById("dynamicbg").style.backgroundImage = 'url('+imgurl+')';
+});
+    
+
+</script>
+
+<script>
+
+</script>
+
+
+
 <?php $errorid = $this->session->flashdata('errorinfu');
 $succid = $this->session->flashdata('successinfu'); ?>
 <?php $errorbrnd = $this->session->flashdata('errorbrand');
@@ -649,23 +726,88 @@ $succbrnd = $this->session->flashdata('successbrand'); ?>
 
 
 <script>
-    // text Effect
-    var app = document.getElementById('txteffect');
+    // List of sentences
+var _CONTENT = [ 
+	"Instagram", 
+	"Facebook",
+    "Youtube"
+];
 
-    var typewriter = new Typewriter(app, {
-        loop: true
-    });
 
-    typewriter.typeString('Youtube')
-        .pauseFor(2500)
-        .deleteAll()
-        .typeString('Instagram')
-        .pauseFor(2500)
-        .deleteAll()
-        .typeString('Facebook')
-        .start();
 
-    // Texteffect end
+
+// Current sentence being processed
+var _PART = 0;
+
+// Character number of the current sentence being processed 
+var _PART_INDEX = 0;
+
+// Holds the handle returned from setInterval
+var _INTERVAL_VAL;
+
+// Element that holds the text
+var _ELEMENT = document.querySelector("#text");
+
+// Cursor element 
+var _CURSOR = document.querySelector("#cursor");
+
+// Implements typing effect
+function Type() { 
+	// Get substring with 1 characater added
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+    if(text[0]=="Y"){
+        document.getElementById('text').style.color = '#FF0000';
+    }else if(text[0]=="F"){
+        document.getElementById('text').style.color = '#3b5998';
+    }
+    else{
+        document.getElementById('text').style.color = '#E1306C';
+    }
+    
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX++;
+    _CURSOR.style.display = 'none';
+	// If full sentence has been displayed then start to delete the sentence after some time
+	if(text === _CONTENT[_PART]) {
+		// Hide the cursor
+		_CURSOR.style.display = 'none';
+
+		clearInterval(_INTERVAL_VAL);
+		setTimeout(function() {
+			_INTERVAL_VAL = setInterval(Delete, 50);
+		}, 3000);
+	}
+}
+
+// Implements deleting effect
+function Delete() {
+	// Get substring with 1 characater deleted
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX--;
+
+	// If sentence has been deleted then start to display the next sentence
+	if(text === '') {
+		clearInterval(_INTERVAL_VAL);
+
+		// If current sentence was last then display the first one, else move to the next
+		if(_PART == (_CONTENT.length - 1))
+			_PART = 0;
+		else
+			_PART++;
+		
+		_PART_INDEX = 0;
+
+		// Start to display the next sentence after some time
+		setTimeout(function() {
+			_CURSOR.style.display = 'none';
+			_INTERVAL_VAL = setInterval(Type, 100);
+		}, 200);
+	}
+}
+
+// Start the typing effect on load
+_INTERVAL_VAL = setInterval(Type, 100);
 </script>
 
 

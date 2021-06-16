@@ -1,6 +1,6 @@
 <style>
     .footer{
-        position:relative !important;
+        position:inherit !important;
         width:100% !important;
     }
 

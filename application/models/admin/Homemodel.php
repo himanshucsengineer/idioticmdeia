@@ -9,7 +9,19 @@ class Homemodel extends CI_Model{
         $this->db->where('sec',"about");
         $this->db->update('home',$data);
     }
-    
+    function home_bg($data){
+      $this->db->set($data);
+      $this->db->where('sec',"bg");
+      $this->db->update('home',$data);
+  }
+
+
+  function home_main_head($data){
+    $this->db->set($data);
+    $this->db->where('sec',"main");
+    $this->db->update('home',$data);
+}
+
     public function fetch_details(){
       return $this->db->get('home')->result_array();
     }
