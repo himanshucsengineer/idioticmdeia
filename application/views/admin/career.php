@@ -107,14 +107,21 @@
     </div>
 </div>
 
-
+<form method="post" action="<?php echo base_url();?>admin/career/export">
 <div class="all_post">
     <div class="container">
         <h3>All Listed Job</h3>
         <hr>
 
         
-    
+        <div class="row" style="margin-bottom:1rem;">
+            <div class=col-md-2>
+               <button class="buu"><i class="fa fa-download" aria-hidden="true"></i> Export to csv</button>
+            </div>
+            <div class="col-md-10">
+                
+            </div>    
+        </div > 
             
             <div class="row">
                 <div class="col-md-12">
@@ -150,7 +157,7 @@
     </div>
 </div>
 
-
+</form>
 
 <div id="deletePurchaseModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

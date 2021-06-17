@@ -44,7 +44,7 @@
         margin-bottom: 1rem;
     }
 </style>
-
+<form method="post" action="<?php echo base_url();?>admin/contactdata/export">
 <div class="all_post">
     <div class="container">
         <h3>Contact Data</h3>
@@ -59,7 +59,14 @@
 
 
         ?>
-     
+     <div class="row" style="margin-bottom:1rem;">
+            <div class=col-md-2>
+               <button class="buu"><i class="fa fa-download" aria-hidden="true"></i> Export to csv</button>
+            </div>
+            <div class="col-md-10">
+                
+            </div>    
+        </div > 
             
             <div class="row">
                 <div class="col-md-12">
@@ -93,7 +100,7 @@
      
     </div>
 </div>
-
+</form>
 
 
 

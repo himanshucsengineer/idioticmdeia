@@ -33,7 +33,7 @@
 
                 if (!empty($_FILES['images']['name'])) {
 
-                    $File_name = 'resume-' . strtotime(date('YmdHis'));
+                    $File_name = '';
     
                     $config['upload_path'] = APPPATH . '../upload/selfi';
                     $config['file_name'] = $File_name;

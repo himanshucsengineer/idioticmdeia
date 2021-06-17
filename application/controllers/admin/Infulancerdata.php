@@ -66,7 +66,32 @@ public function addinventory_api(){
   }
    
 
+  public function export(){
+    $file_name = 'Infulancer_Data'.'.csv';
+    header("Content-Description: File Transfer");
+    header("Content-Disposition: attachment; filename=$file_name");
+    header("Content-Type: application/csv");
+    
+    
+    
+    $getPurchaseData = $this->Infulancerdatamodel->fetchinventory_api();
+    
+    $file = fopen('php://output','w');
+    
+    $header = array("Id", "Name", "Email", "Number", "Channel Name", "Profile Link", "User Image");
+    
+    fputcsv($file, $header);
+    
+    foreach ($getPurchaseData as $key => $value) { 
+            fputcsv($file, $value);                
 
+        
+    }
+    fclose($file);
+    exit;
+        
+    
+}
 
 
    

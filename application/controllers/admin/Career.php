@@ -112,7 +112,32 @@ public function create_post(){
   }
 
 
+  public function export(){
+    $file_name = 'Listed_job'.'.csv';
+    header("Content-Description: File Transfer");
+    header("Content-Disposition: attachment; filename=$file_name");
+    header("Content-Type: application/csv");
+    
+    
+    
+    $getPurchaseData = $this->Careermodel->fetch_career();
+    
+    $file = fopen('php://output','w');
+    
+    $header = array("Id", "Job Type", "Job Name", "Location", "Experiance", "Language ", "Description", "Qualification","date");
+    
+    fputcsv($file, $header);
+    
+    foreach ($getPurchaseData as $key => $value) { 
+            fputcsv($file, $value);                
 
+        
+    }
+    fclose($file);
+    exit;
+        
+    
+}
 
 
 
