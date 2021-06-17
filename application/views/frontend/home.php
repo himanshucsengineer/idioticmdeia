@@ -112,6 +112,9 @@
         .container{
             max-width: 90% !important;
         }
+        .mm{
+            padding: 0rem !important;
+        }
     }
 </style>
 <main>
@@ -121,7 +124,7 @@
    
    
     <!-- Hero -->
-    <section class="hero_withbg" id="dynamicbg">
+    <section class="hero_withbg  mm" id="dynamicbg">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
