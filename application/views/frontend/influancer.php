@@ -6,6 +6,10 @@
      margin-top: 2rem;
      border-radius: 10px;
  }
+
+ .form_bb--btn2{
+     width: 100% !important;
+ }
  .accordion-button:not(.collapsed){
     background-color: transparent !important;
     color: #337ab7 !important;
@@ -105,8 +109,8 @@
                             </div>
                             <div class="mb-5">
                                 <div>
-                                    <input type="number" class="instyle inf_form"
-                                        placeholder="Mobile Number" name="mob">
+                                   
+                                        <input type="text" class="instyle inf_form" placeholder="Mobile Number" id="getmobil" name="mob" required onkeyup="checkk(); return false;" maxlength="10"><span id="messag"></span>
                                 </div>
                                 <div><span></span></div>
                             </div>
@@ -385,7 +389,58 @@
             </div>
         </section>
         <!-- End Of Section 2 -->
+        <div class="modal fade" id="infuverimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content pxy4">
+            <div class="p1 flex jce">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
+            </div>
+            <?php if ($this->session->flashdata('successinfu')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
+            } else if ($this->session->flashdata('errorinfuvari')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfuvari') . '</div>';
+            }
+
+
+            ?>
+            <div class="p1 text-center">
+                <p class="ltag dim">Please enter the one time password to verify your account</p>
+                <p class="ltag dim">Your Code Has Been Sent On <?php echo $_SESSION['infu_email']?></p>
+            </div>
+            
+            
+            <form action="<?php echo base_url() ?>frontend/influancer/verify_infu" method="POST" >
+                
+
+               <input type="hidden" name="name" value="<?php echo $_SESSION['infu_name']?>">
+               <input type="hidden" name="email" value="<?php echo $_SESSION['infu_email']?>">
+               <input type="hidden" name="mob" value="<?php echo $_SESSION['infu_mob']?>">
+               <input type="hidden" name="c_name" value="<?php echo $_SESSION['infu_c_name']?>">
+               <input type="hidden" name="p_link" value="<?php echo $_SESSION['infu_p_link']?>">
+               <input type="hidden" name="pic" value="<?php echo $_SESSION['infu_pic']?>">
+               <input type="text" name="ses_otp" value="<?php echo $_SESSION['infu_otp']?>">
+              
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <div>
+                            <input type="text" class="instyle inf_form" placeholder="Enter Otp" id="getmob" name="otp" required onkeyup="chec(); return false;" maxlength="6"><span id="mes"></span>
+                               
+                            </div>
+                            <div><span></span></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn form_bb--btn2 ltag">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     </main>
 
 
@@ -395,10 +450,26 @@
     <div class="spacer"></div>
   
 
+    
 
+<script type="text/javascript">
+    var na = "<?php echo $_SESSION['infu_name']?>";
+    if(na != ''){
+        $(window).on('load', function() {
+        $('#infuverimodal').modal('show');
+    });
+    }
 
+   
+</script>
 
-
+<script>
+    $("#imageUpload").change(function() {
+  filename = this.files[0].name;
+  document.getElementById('imagename').value = filename;
+  console.log(filename);
+});
+</script>
 
 
 
@@ -433,4 +504,49 @@
             }
         });
     });
+</script>
+
+
+
+<script>
+  function checkk()
+{
+
+    var mobil = document.getElementById('getmobil');
+   
+    
+    var messag = document.getElementById('messag');
+
+   var goodColo = "#0C6";
+    var badColo = "#FF0000";
+  
+    if(mobil.value.length!=10){
+        messag.style.color = badColo;
+        messag.innerHTML = "Please Enter Valid Mobile No."
+    }
+    else{
+        messag.style.color = goodColo;
+        messag.innerHTML = "Valid Mobile No."
+    }
+    
+}
+  
+  </script>
+
+
+<?php 
+    $errorinveri = $this->session->flashdata('errorinfuvari');
+ ?>
+
+
+<script>
+  
+    var errrveri = "<?php echo $errorinveri ?>";
+
+   
+    if (errrveri != "") {
+        $(document).ready(function() {
+            $("#infuverimodal").modal('show');
+        });
+    }
 </script>

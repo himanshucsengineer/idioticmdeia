@@ -473,7 +473,8 @@
                     <div class="col-md-6">
                         <div class="mb-4">
                             <div>
-                                <input type="number" name="mob" class="instyle inf_form" placeholder="Mobile Number" name="phone">
+                            <input type="text" class="instyle inf_form" placeholder="Mobile Number" id="getmobile" name="phone" required onkeyup="checkkk(); return false;" maxlength="10"><span id="messa"></span>
+
                             </div>
                             <div><span></span></div>
                         </div>
@@ -544,6 +545,7 @@
 
 
             ?>
+            
             <form action="<?php echo base_url() ?>home/insert_infu" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col">
@@ -575,8 +577,8 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="number" name="mob" placeholder="Mobile Number" class="instyle inf_form">
-
+                            <input type="text" class="instyle inf_form" placeholder="Indian (+91) Mobile Number" id="getmobil" name="mob" required onkeyup="checkk(); return false;" maxlength="10"><span id="messag"></span>
+                               
                             </div>
                             <div><span></span></div>
                         </div>
@@ -647,6 +649,123 @@
 
 
 
+
+
+
+
+<div class="modal fade" id="infuverifymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content pxy4">
+            <div class="p1 flex jce">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <?php if ($this->session->flashdata('successinfu')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
+            } else if ($this->session->flashdata('errorinfuvarify')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorinfuvarify') . '</div>';
+            }
+
+
+            ?>
+            <div class="p1 text-center">
+                <p class="ltag dim">Please enter the one time password to verify your account</p>
+                <p class="ltag dim">Your Code Has Been Sent On <?php echo $_SESSION['email']?></p>
+            </div>
+            
+            
+            <form action="<?php echo base_url() ?>home/verify_infu" method="POST" >
+                
+
+               <input type="hidden" name="name" value="<?php echo $_SESSION['name']?>">
+               <input type="hidden" name="email" value="<?php echo $_SESSION['email']?>">
+               <input type="hidden" name="mob" value="<?php echo $_SESSION['mob']?>">
+               <input type="hidden" name="c_name" value="<?php echo $_SESSION['c_name']?>">
+               <input type="hidden" name="p_link" value="<?php echo $_SESSION['p_link']?>">
+               <input type="hidden" name="pic" value="<?php echo $_SESSION['pic']?>">
+               <input type="text" name="ses_otp" value="<?php echo $_SESSION['otp']?>">
+              
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <div>
+                            <input type="text" class="instyle inf_form" placeholder="Enter Otp" id="getmob" name="otp" required onkeyup="chec(); return false;" maxlength="6"><span id="mes"></span>
+                               
+                            </div>
+                            <div><span></span></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn form_bb--btn2 ltag">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="brandverifymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content pxy4">
+            <div class="p1 flex jce">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <?php if ($this->session->flashdata('successinfu')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('successinfu') . '</div>';
+            } else if ($this->session->flashdata('errorbrandarify')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('errorbrandarify') . '</div>';
+            }
+
+
+            ?>
+            <div class="p1 text-center">
+                <p class="ltag dim">Please enter the one time password to verify your account</p>
+                <p class="ltag dim">Your Code Has Been Sent On <?php echo $_SESSION['brnd_email']?></p>
+            </div>
+            
+            
+            <form action="<?php echo base_url() ?>home/verify_brand" method="POST" >
+                
+
+               <input type="hidden" name="brnd_name" value="<?php echo $_SESSION['brnd_name']?>">
+               <input type="hidden" name="brnd_email" value="<?php echo $_SESSION['brnd_email']?>">
+               <input type="hidden" name="brnd_mob" value="<?php echo $_SESSION['brnd_mob']?>">
+               <input type="hidden" name="marketing" value="<?php echo $_SESSION['marketing']?>">
+               <input type="hidden" name="msg" value="<?php echo $_SESSION['msg']?>">
+             
+               <input type="text" name="ses_otp" value="<?php echo $_SESSION['brnd_otp']?>">
+              
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <div>
+                            <input type="text" class="instyle inf_form" placeholder="Enter Otp" id="getmob" name="otp" required onkeyup="chec(); return false;" maxlength="6"><span id="mes"></span>
+                               
+                            </div>
+                            <div><span></span></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mb-2 text-center">
+                    <button class="btn form_bb--btn2 ltag">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 <?php foreach ($home as $val) {
         if ($val['sec'] == "bg") { 
             $bg_img_url = 'upload/home/'.$val['file'];   
@@ -655,6 +774,98 @@
     }
                     
 ?>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var naa = "<?php echo $_SESSION['name']?>";
+    if(naa != ''){
+        $(window).on('load', function() {
+        $('#infuverifymodal').modal('show');
+    });
+    }
+
+   
+</script>
+<script type="text/javascript">
+    var na = "<?php echo $_SESSION['brnd_name']?>";
+    if(na != ''){
+        $(window).on('load', function() {
+        $('#brandverifymodal').modal('show');
+    });
+    }
+
+   
+</script>
+
+
+<script>
+  function checkk()
+{
+
+    var mobil = document.getElementById('getmobil');
+   
+    
+    var messag = document.getElementById('messag');
+
+   var goodColo = "#0C6";
+    var badColo = "#FF0000";
+  
+    if(mobil.value.length!=10){
+        messag.style.color = badColo;
+        messag.innerHTML = "Please Enter Valid Mobile No."
+    }
+    else{
+        messag.style.color = goodColo;
+        messag.innerHTML = "Valid Mobile No."
+    }
+    
+}
+  
+  </script>
+
+<script>
+  function checkkk()
+{
+
+    var mobi = document.getElementById('getmobile');
+   
+    
+    var messa = document.getElementById('messa');
+
+   var goodColor = "#0C6";
+    var badColor = "#FF0000";
+  
+    if(mobi.value.length!=10){
+        messa.style.color = badColor;
+        messa.innerHTML = "Please Enter Valid Mobile No."
+    }
+    else{
+        messa.style.color = goodColor;
+        messa.innerHTML = "Valid Mobile No."
+    }
+    
+}
+  
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -674,15 +885,23 @@ $(document).ready(function(){
 
 
 <?php $errorid = $this->session->flashdata('errorinfu');
+    $errorinverify = $this->session->flashdata('errorinfuvarify');
+    $errorbrandvarify = $this->session->flashdata('errorbrandvarify');
 $succid = $this->session->flashdata('successinfu'); ?>
 <?php $errorbrnd = $this->session->flashdata('errorbrand');
 $succbrnd = $this->session->flashdata('successbrand'); ?>
 <script>
     var errr = "<?php echo $errorid ?>";
+    var errrverify = "<?php echo $errorinverify ?>";
     var succ = "<?php echo $succid ?>";
     if (errr != "" || succ != "") {
         $(document).ready(function() {
-            $("#brandmodal").modal('show');
+            $("#infumodal").modal('show');
+        });
+    }
+    if (errrverify != "") {
+        $(document).ready(function() {
+            $("#infuverifymodal").modal('show');
         });
     }
 </script>
@@ -690,10 +909,17 @@ $succbrnd = $this->session->flashdata('successbrand'); ?>
 
 <script>
     var errorbrnd = "<?php echo $errorbrnd ?>";
+    var errorbrandvarify = "<?php echo $errorbrandvarify ?>";
     var succbrnd = "<?php echo $succbrnd ?>";
     if (errorbrnd != "" || succbrnd != "") {
         $(document).ready(function() {
-            $("#infumodal").modal('show');
+            $("#brandmodal").modal('show');
+        });
+    }
+
+    if (errorbrandvarify != "") {
+        $(document).ready(function() {
+            $("#brandverifymodal").modal('show');
         });
     }
 </script>

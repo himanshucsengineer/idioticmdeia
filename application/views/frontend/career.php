@@ -245,8 +245,8 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="number" name="mob" placeholder="Mobile Number" class="instyle inf_form">
 
+                                <input type="text" class="instyle inf_form" placeholder="Mobile Number" id="getmobile" name="mob" required onkeyup="checkkk(); return false;" maxlength="10"><span id="messa"></span>
                             </div>
                             <div><span></span></div>
                         </div>
@@ -335,8 +335,8 @@
                     <div class="col">
                         <div class="mb-4">
                             <div>
-                                <input type="number" name="mob" placeholder="Mobile Number" class="instyle inf_form">
-
+    
+                                <input type="text" class="instyle inf_form" placeholder="Mobile Number" id="getmobil" name="mob" required onkeyup="checkk(); return false;" maxlength="10"><span id="messag"></span>
                             </div>
                             <div><span></span></div>
                         </div>
@@ -382,6 +382,55 @@
 
 
 
+<script>
+  function checkk()
+{
+
+    var mobil = document.getElementById('getmobil');
+   
+    
+    var messag = document.getElementById('messag');
+
+   var goodColo = "#0C6";
+    var badColo = "#FF0000";
+  
+    if(mobil.value.length!=10){
+        messag.style.color = badColo;
+        messag.innerHTML = "Please Enter Valid Mobile No."
+    }
+    else{
+        messag.style.color = goodColo;
+        messag.innerHTML = "Valid Mobile No."
+    }
+    
+}
+  
+  </script>
+
+<script>
+  function checkkk()
+{
+
+    var mobi = document.getElementById('getmobile');
+   
+    
+    var messa = document.getElementById('messa');
+
+   var goodColor = "#0C6";
+    var badColor = "#FF0000";
+  
+    if(mobi.value.length!=10){
+        messa.style.color = badColor;
+        messa.innerHTML = "Please Enter Valid Mobile No."
+    }
+    else{
+        messa.style.color = goodColor;
+        messa.innerHTML = "Valid Mobile No."
+    }
+    
+}
+  
+  </script>
 
 <script>
     $(document).ready(function() {

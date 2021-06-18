@@ -6,6 +6,17 @@
     .logo{
         margin-left: 2rem;
         width: 150px;
+       
+    }
+    .nav_links{
+        font-size: 18px !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .logo{
+        margin-left: 0rem;
+        width: 130px;
+       
+    }
     }
 </style>
 <?php
