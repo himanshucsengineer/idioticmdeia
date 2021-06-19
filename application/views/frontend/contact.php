@@ -76,10 +76,10 @@
 
                 </div>
                 <div class="col-md-6 contact_right bod pxy3">
-
-                    <img src="<?php echo base_url() ?>assest/images/normals/aboutimg.jpg" alt="" class="w-100 contact_right--img1 ">
-                    <img src="<?php echo base_url() ?>assest/images/normals/office2.png" alt="" class="w-100 contact_right--img2">
-
+                    <?php foreach($contact as $value){ if($value['id']==1){?>
+                    <img src="<?php echo base_url() ?>upload/whyus/<?php echo $value['file']?>" alt="" class="w-100 contact_right--img1 ">
+                    <img src="<?php echo base_url() ?>upload/whyus/<?php echo $value['file2']?>" alt="" class="w-100 contact_right--img2">
+                    <?php }}?>
                 </div>
             </div>
         </div>

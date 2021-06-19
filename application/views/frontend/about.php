@@ -5,7 +5,10 @@
 
   overflow: hidden;
 }
-
+.hq_img{
+    width: 100% !important;
+    height: 300px !important;
+}
 .content .content-overlay {
   background: rgba(0,0,0,0.7);
   position: absolute;
@@ -83,7 +86,9 @@
                 <div class="row">
                     <div class="col text-center">
                         <div class="p2">
-                            <h1>About Us</h2>
+                        <?php foreach($about as $value){ if($value['sec']=="about"){?>
+                            <h1><?php echo $value['main_head']?></h2>
+                            <?php }}?>
                         </div>
                         <div class="p2">
                             <?php foreach($about as $value){ if($value['sec']=="about"){?>
@@ -102,7 +107,9 @@
                     <div class="row">
                         <div class="col pxy2">
                             <div class="p2">
-                                <h1 class="cs_hl">Our Vision</h2>
+                            <?php foreach($about as $value){ if($value['sec']=="vision"){?>
+                                <h1 class="cs_hl"><?php echo $value['main_head']?></h2>
+                                <?php }}?>
                             </div>
                             <div class="">
                             <?php foreach($about as $value){ if($value['sec']=="vision"){?>
@@ -135,7 +142,9 @@
                     <div class="row">
                         <div class="col pxy2">
                             <div class="p2">
-                                <h1 class="cs_hl ">Core Team</h2>
+                            <?php foreach($about as $value){ if($value['sec']=="core"){?>
+                                <h1 class="cs_hl "><?php echo $value['main_head']?></h2>
+                                <?php }}?>
                             </div>
                             <div class="">
                             <?php foreach($about as $value){ if($value['sec']=="core"){?>
@@ -194,7 +203,9 @@
                     <div class="row">
                         <div class="col-md-6 pxy3">
                             <div class="p2">
-                                <h1 class="cs_hl">Idiotic Media HQ</h2>
+                            <?php foreach($about as $value){ if($value['sec']=="hq"){?>
+                                <h1 class="cs_hl"><?php echo $value['main_head']?></h2>
+                                <?php }}?>
                             </div>
                             <div class="p2">
                             <?php foreach($about as $value){ if($value['sec']=="hq"){?>
@@ -209,8 +220,9 @@
 
                         </div>
                         <div class="col-md-6 pxy3">
-
-                            <img src="<?php echo base_url()?>assest/images/normals/aboutimg.jpg" alt="" class="w-100">
+                        <?php foreach($about as $value){ if($value['sec']=="hq"){?>
+                            <img class="hq_img" src="<?php echo base_url()?>upload/aboutus/<?php echo $value['file']?>" alt="" class="w-100">
+                            <?php }}?>
                         </div>
                     </div>
 

@@ -181,7 +181,7 @@ foreach($category as $value){
                
                <input type="hidden" name="brand_msg" value="<?php echo $_SESSION['brand_msg']?>">
              
-               <input type="text" name="ses_otp" value="<?php echo $_SESSION['brand_otp']?>">
+               <input type="hidden" name="ses_otp" value="<?php echo $_SESSION['brand_otp']?>">
               
 
                 <div class="row">

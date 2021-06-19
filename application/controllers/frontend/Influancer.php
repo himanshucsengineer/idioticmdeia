@@ -3,25 +3,42 @@
         public function __construct()
     {
         parent::__construct();
-        
+        $this->load->model('admin/Infumodel');
     }
 
         public function index(){
-            
+            $data['infu']= $this->Infumodel->fetch_details();
            
             $this->load->view('frontend/template/header');
             $this->load->view('frontend/template/navbar');
             
-            $this->load->view('frontend/influancer');
+            $this->load->view('frontend/influancer',$data);
             $this->load->view('frontend/template/footer');
 
         }
         public function insert_infu(){
             $this->load->model('frontend/Homemodel');
             $this->load->helper('url');
+
+
     
             $six_digit_random_number = random_int(100000, 999999);
-           
+           $this->load->config('email');
+        $this->load->library('email');
+        
+        
+         $from = $this->config->item('smtp_user');
+        $to = $this->input->post('email');
+        $subject = "Account Verification";
+        $message = "<p>Your One time Password for  verication is: ".$six_digit_random_number."</p>
+       
+                  ";
+
+        $this->email->set_newline("\r\n");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($message);
     
              $this->form_validation->set_rules('name', 'Name', 'trim|required');
              $this->form_validation->set_rules('email', 'Email', 'trim|required');
@@ -30,7 +47,7 @@
              $this->form_validation->set_rules('p_link', 'Message', 'trim|required');
             
              if ($this->form_validation->run()) {
-
+                $this->email->send();
                 if (!empty($_FILES['images']['name'])) {
 
                     $File_name = '';

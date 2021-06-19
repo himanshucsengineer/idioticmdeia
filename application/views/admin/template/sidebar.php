@@ -111,8 +111,15 @@
     <li class="nav-item <?php echo ($parts == 'home')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/home"><i class="fas fa-fw fa-table" ></i><span >Home Page</span></a>
     </li>
+    <li class="nav-item <?php echo ($parts == 'contactus')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/contactus"><i class="fas fa-fw fa-table" ></i><span >Contact Us</span></a>
+    </li>
     <li class="nav-item <?php echo ($parts == 'about')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/about"><i class="fas fa-fw fa-table" ></i><span >About us</span></a>
+    </li>
+
+    <li class="nav-item <?php echo ($parts == 'infu')?"active":""?>">
+      <a class="nav-link " href="<?php echo base_url(); ?>admin/infu"><i class="fas fa-fw fa-table" ></i><span >Infualncer Page</span></a>
     </li>
     <li class="nav-item <?php echo ($parts == 'brands')?"active":""?>">
       <a class="nav-link " href="<?php echo base_url(); ?>admin/brands"><i class="fas fa-fw fa-table" ></i><span >Add Brands</span></a>

@@ -72,6 +72,9 @@
 	color: orange;
 	
 }
+.font_wee{
+    font-weight: 800 !important;
+}
 
 #cursor {
 	display: none;
@@ -135,7 +138,7 @@
                             <div class="p5">
                             <?php foreach ($home as $val) {
                             if ($val['sec'] == "main") { ?>
-                                <h1 class="wordblock__heading hero_withbg--title"><?php echo $val['head']?>
+                                <h1 class="wordblock__heading hero_withbg--title  font_wee"><?php echo $val['head']?>
                                 </h1>
                             <?php }}?>
                             </div>
@@ -618,7 +621,7 @@
                             <div>
                             <div class="member_flexx">
                             <div class="left">
-                                <label for="imageUpload"  class="instyle inf_form"> Upload Photo</label>
+                                <label for="imageUpload"  class="instyle inf_form"> Upload Selfi</label>
                                 <input id="imageUpload" name="images" style="display:none;" type="file">
                             </div>
                             <div class="right">
@@ -683,7 +686,7 @@
                <input type="hidden" name="c_name" value="<?php echo $_SESSION['c_name']?>">
                <input type="hidden" name="p_link" value="<?php echo $_SESSION['p_link']?>">
                <input type="hidden" name="pic" value="<?php echo $_SESSION['pic']?>">
-               <input type="text" name="ses_otp" value="<?php echo $_SESSION['otp']?>">
+               <input type="hidden" name="ses_otp" value="<?php echo $_SESSION['otp']?>">
               
 
                 <div class="row">
@@ -740,7 +743,7 @@
                <input type="hidden" name="marketing" value="<?php echo $_SESSION['marketing']?>">
                <input type="hidden" name="msg" value="<?php echo $_SESSION['msg']?>">
              
-               <input type="text" name="ses_otp" value="<?php echo $_SESSION['brnd_otp']?>">
+               <input type="hidden" name="ses_otp" value="<?php echo $_SESSION['brnd_otp']?>">
               
 
                 <div class="row">

@@ -29,7 +29,7 @@ public function update_about(){
     
     $this->input->post('formSubmit');
     $data = array(
-      
+        'main_head'=>$this->input->post('main_head'),
         'content'=>$this->input->post('content'),
     );
     if($this->Aboutusmodel->update_about($data)){
@@ -46,6 +46,7 @@ public function update_vision(){
     $this->load->model('frontend/Aboutusmodel');
     $this->input->post('formSubmit');
     $data = array(
+        'main_head'=>$this->input->post('main_head'),
         'head'=>$this->input->post('head'),
         'content'=>$this->input->post('content'),
     );
@@ -63,6 +64,7 @@ public function update_core_team(){
     $this->load->model('frontend/Aboutusmodel');
     $this->input->post('formSubmit');
     $data = array(
+        'main_head'=>$this->input->post('main_head'),
         'head'=>$this->input->post('head'),
         'content'=>$this->input->post('content'),
     );
@@ -79,9 +81,36 @@ public function update_core_team(){
 public function update_hq(){
     $this->load->model('frontend/Aboutusmodel');
     $this->input->post('formSubmit');
+
+    
+    if (!empty($_FILES['image']['name'])) {
+
+        $File_name = '' ;
+
+        $config['upload_path'] = APPPATH . '../upload/aboutus';
+        $config['file_name'] = $File_name;
+        $config['overwrite'] = TRUE;
+        $config["allowed_types"] = 'jpg|jpeg|png';
+        $config["max_size"] = '';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('image')) {
+
+            $this->data['error'] = $this->upload->display_errors();
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+
+            redirect(base_url().'admin/about');
+        } else {
+            $dataimage_return = $this->upload->data();
+            $imageu = $dataimage_return['file_name'];
+        }
+    }
     $data = array(
+        'main_head'=>$this->input->post('main_head'),
         'head'=>$this->input->post('head'),
         'address'=>$this->input->post('address'),
+        'file'=>$imageu,
     );
     if($this->Aboutusmodel->update_hq($data)){
         $this->session->set_flashdata('error','Error in updating'); 
@@ -126,7 +155,7 @@ public function team(){
                 $this->data['error'] = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $this->upload->display_errors());
 
-                redirect(base_url());
+                redirect(base_url().'admin/about');
             } else {
                 $dataimage_return = $this->upload->data();
                 $imageurl = $dataimage_return['file_name'];

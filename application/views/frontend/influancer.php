@@ -67,9 +67,10 @@
                         <div class="spacer"></div>
 
                         <div class="p3 text-center">
-                            <h2>Earn money for your
-                                social content</h2>
-                            <img class="infu_imag" src="<?php echo base_url()?>assest/images/infu_top_sec.jpg" alt="">
+                            <?php foreach($infu as $value){ if($value['sec']=="first"){?>
+                            <h2><?php echo $value['head']?></h2>
+                            <img class="infu_imag" src="<?php echo base_url()?>upload/whyus/<?php echo $value['file']?>" alt="">
+                            <?php }}?>
                         </div>
 
 
@@ -132,7 +133,7 @@
                                 <div>
                                 <div class="member_flexx">
                             <div class="left">
-                                <label for="imageUpload"  class="instyle inf_form"> Upload Photo</label>
+                                <label for="imageUpload"  class="instyle inf_form"> Upload Selfi</label>
                                 <input id="imageUpload" name="images" style="display:none;" type="file">
                             </div>
                             <div class="right">
@@ -164,14 +165,15 @@
             <div class="container_xs ">
 
                 <div class="row">
+                <?php foreach($infu as $value){ if($value['sec']=="second"){?>
                     <div class="col-md-6 bod pxy1">
 
                         <div class="pxy5">
                             <div class="p3">
-                                <h2>Top Brand</h2>
+                                <h2><?php echo $value['head']?></h2>
                             </div>
                             <div class="p2">
-                                <p>Get access to domain experts in build.</p>
+                                <p><?php echo $value['content']?></p>
                             </div>
                         </div>
 
@@ -181,13 +183,14 @@
 
 
                         <div class="text-center">
-                            <img src="<?php echo base_url()?>assest/images/normals/Phone.png" alt="" class="w-100 topbrand_img">
+                            <img src="<?php echo base_url()?>upload/whyus/<?php echo $value['file']?>" alt="" class="w-100 topbrand_img">
                         </div>
 
 
 
 
                     </div>
+                    <?php }}?>
                 </div>
             </div>
         </section>
@@ -202,21 +205,19 @@
 
                 <div class="row aic">
                     <div class="col bod pxy1 text-center">
-
+                    <?php foreach($infu as $value){ if($value['sec']=="third"){?>
                         <div class="p1">
-                            <h1>Network</h1>
+                            <h1><?php echo $value['head']?></h1>
                         </div>
 
                         <div class="p2">
-                            <h3>We Work with the A-Listers of Social Media</h3>
+                            <h3><?php echo $value['content']?></h3>
                         </div>
-
+                        <?php }}?>
                         <div class="network_people flex jcc p3">
-                            <img src="<?php echo base_url()?>assest/images/normals/circle1.jpeg" alt="" class="network_people--img">
-                            <img src="<?php echo base_url()?>assest/images/normals/circle4.jpeg" alt="" class="network_people--img neg_mt--left">
-                            <img src="<?php echo base_url()?>assest/images/normals/circle2.jpeg" alt="" class="network_people--img neg_mt--left">
-                            <img src="<?php echo base_url()?>assest/images/normals/circle3.jpeg" alt="" class="network_people--img neg_mt--left">
-                            <img src="<?php echo base_url()?>assest/images/normals/circle1.jpeg" alt="" class="network_people--img neg_mt--left">
+                        <?php foreach($infu as $value){ if($value['sec']=="net"){?>
+                            <img src="<?php echo base_url()?>upload/whyus/<?php echo $value['file']?>" alt="" class="network_people--img">
+                        <?php }}?>
                         </div>
 
 
@@ -248,63 +249,31 @@
                 <div class="row p3">
                     <div class="col-md-6 bod pxy1">
 
-                        <div class="p1 text-center">
+                        <!--div class="p1 text-center">
                             <h4 class="ltag">
                                 GET STARTED
                             </h4>
-                        </div>
+                        </div-->
 
                         <div class="row p3">
                             <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <?php foreach($infu as $value){ if($value['sec']=="left"){?>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $value['id']?>"
                                             aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Who can be an influencer?
+                                            <?php echo $value['head']?>
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    <div id="flush-collapse<?php echo $value['id']?>" class="accordion-collapse collapse"
                                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            first item's accordion body.</div>
+                                        <div class="accordion-body"><?php echo $value['content']?></div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingTwo">
-                                        <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                            aria-expanded="false" aria-controls="flush-collapseTwo">
-                                            Accordion Item #2
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            second item's accordion body. Let's imagine this being filled with some
-                                            actual content.</div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                            aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Accordion Item #3
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            third item's accordion body. Nothing more exciting happening here in terms
-                                            of content, but just filling up the space to make it look, at least at first
-                                            glance, a bit more representative of how this would look in a real-world
-                                            application.</div>
-                                    </div>
-                                </div>
+                                <?php }}?>
+                                
+                               
                             </div>
                         </div>
 
@@ -313,70 +282,33 @@
                     </div>
                     <div class="col-md-6 bod pxy1">
 
-                        <div class="p1 text-center">
+                        <!--div class="p1 text-center">
 
                             <h4 class="ltag">
                                 EARNING
                             </h4>
-                        </div>
+                        </div-->
 
 
                         <div class="row p3">
                             <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <?php foreach($infu as $value){ if($value['sec']=="right"){?>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse4"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $value['id']?>"
                                             aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Who can be an influencer?
+                                            <?php echo $value['head']?>
                                         </button>
                                     </h2>
-                                    <div id="flush-collapse4" class="accordion-collapse collapse"
+                                    <div id="flush-collapse<?php echo $value['id']?>" class="accordion-collapse collapse"
                                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is
-                                            the
-                                            first item's accordion body.</div>
+                                        <div class="accordion-body"><?php echo $value['content']?></div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingTwo">
-                                        <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse5"
-                                            aria-expanded="false" aria-controls="flush-collapseTwo">
-                                            Accordion Item #2
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse5" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is
-                                            the
-                                            second item's accordion body. Let's imagine this being filled with some
-                                            actual content.</div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed ltag cs_hl" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse6"
-                                            aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Accordion Item #3
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse6" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is
-                                            the
-                                            third item's accordion body. Nothing more exciting happening here in
-                                            terms
-                                            of content, but just filling up the space to make it look, at least at
-                                            first
-                                            glance, a bit more representative of how this would look in a real-world
-                                            application.</div>
-                                    </div>
-                                </div>
+                                <?php }}?>
+                                
+                                
                             </div>
                         </div>
 
@@ -419,7 +351,7 @@
                <input type="hidden" name="c_name" value="<?php echo $_SESSION['infu_c_name']?>">
                <input type="hidden" name="p_link" value="<?php echo $_SESSION['infu_p_link']?>">
                <input type="hidden" name="pic" value="<?php echo $_SESSION['infu_pic']?>">
-               <input type="text" name="ses_otp" value="<?php echo $_SESSION['infu_otp']?>">
+               <input type="hidden" name="ses_otp" value="<?php echo $_SESSION['infu_otp']?>">
               
 
                 <div class="row">

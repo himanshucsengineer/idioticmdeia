@@ -4,15 +4,16 @@
     {
         parent::__construct();
         $this->load->model('frontend/Contactmodel');
+        $this->load->model('admin/Whyusmodel');
     }
 
         public function index(){
             
-           
+            $data['contact']= $this->Whyusmodel->fetch_contact();
             $this->load->view('frontend/template/header');
             $this->load->view('frontend/template/navbar');
             
-            $this->load->view('frontend/contact');
+            $this->load->view('frontend/contact',$data);
             $this->load->view('frontend/template/footer');
 
         }
